@@ -7,7 +7,7 @@ export default function Page() {
   const lineRef = useRef(null);
   const codeRef = useRef(null);
 
-  // Scroll syncing
+
   useEffect(() => {
     const codeArea = codeRef.current;
     const lineArea = lineRef.current;
@@ -32,9 +32,36 @@ export default function Page() {
     return Array.from({ length: lines }, (_, i) => i + 1).join('\n');
   };
 
+  const formatCode = () => {
+    const lines = code.split('\n');
+    let formatted = '';
+    let indentLevel = 0;
+    const indent = '  ';
+
+    for (let rawLine of lines) {
+      let line = rawLine.trim();
+
+      if (line.startsWith('}')) indentLevel = Math.max(0, indentLevel - 1);
+      formatted += indent.repeat(indentLevel) + line + '\n';
+
+      if (line.endsWith('{')) indentLevel += 1;
+    }
+
+    setCode(formatted.trim());
+  };
+
   return (
     <main className="p-6 font-mono">
-      <h1 className="text-2xl font-bold mb-4">Tailwind Gist-style Editor</h1>
+      <div className="flex items-center justify-between mb-4">
+        <h1 className="text-2xl font-bold">Tailwind Gist-style Editor</h1>
+        <button
+          onClick={formatCode}
+          className="px-3 py-1 text-sm bg-blue-600 text-white rounded hover:bg-blue-700"
+        >
+          Format Code
+        </button>
+      </div>
+
       <div className="flex border rounded-lg overflow-hidden bg-gray-50 h-[400px]">
         <textarea
           ref={lineRef}
