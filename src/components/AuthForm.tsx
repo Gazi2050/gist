@@ -1,0 +1,120 @@
+"use client"
+import { AuthType } from '@/constants/type';
+import { Code, Eye, EyeOff } from 'lucide-react';
+import Link from 'next/link';
+import { useState } from 'react';
+
+const AuthForm = ({ authType }: { authType: AuthType }) => {
+    const [showPassword, setShowPassword] = useState(false);
+    const togglePasswordVisibility = () => {
+        setShowPassword(prev => !prev);
+    };
+
+
+
+    return (
+        <div className="flex items-center justify-center py-6 px-4 sm:py-8 sm:px-6 md:py-12">
+            <div className="w-full max-w-[90%] sm:max-w-md space-y-6 sm:space-y-8 bg-white p-6 sm:p-8 md:p-10 rounded-xl shadow-lg">
+                {/* Center the logo properly */}
+                <div className="flex justify-center items-center text-gray-900 mb-6">
+                    <Link href="/" className="flex items-center space-x-2 cursor-pointer">
+                        <Code className="h-10 w-10 text-violet-400" />
+                        <span className="text-3xl font-bold">Gist</span>
+                    </Link>
+                </div>
+
+                <div className="text-center">
+                    <h1 className="text-2xl sm:text-3xl font-extrabold text-gray-900 tracking-tight">
+                        {authType === 'signup' ? 'Create New Account' : 'Sign In'}
+                    </h1>
+                    <p className="mt-2 sm:mt-3 text-xs sm:text-sm text-gray-500">
+                        {authType === 'signup' ? 'Enter your details to get started on your journey' : 'Enter your credentials to access your account'}
+                    </p>
+                </div>
+
+                <form className="mt-6 sm:mt-8 space-y-4 sm:space-y-6" action="#" method="POST">
+                    <div className="rounded-md space-y-4 sm:space-y-5">
+                        {authType === 'signup' && (
+                            <div className="group">
+                                <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
+                                    Username
+                                </label>
+                                <div className="relative">
+                                    <input
+                                        id="username"
+                                        name="username"
+                                        type="text"
+                                        required
+                                        className="appearance-none block w-full px-3 py-2.5 sm:px-4 sm:py-3 border border-gray-300 rounded-lg shadow-sm placeholder-gray-400 text-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:border-transparent transition duration-150 ease-in-out text-sm sm:text-base"
+                                        placeholder="John Doe"
+                                    />
+                                </div>
+                            </div>
+                        )}
+
+                        <div className="group">
+                            <label htmlFor="email-address" className="block text-sm font-medium text-gray-700 mb-1">
+                                Email address
+                            </label>
+                            <div className="relative">
+                                <input
+                                    id="email-address"
+                                    name="email"
+                                    type="email"
+                                    autoComplete="email"
+                                    required
+                                    className="appearance-none block w-full px-3 py-2.5 sm:px-4 sm:py-3 border border-gray-300 rounded-lg shadow-sm placeholder-gray-400 text-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:border-transparent transition duration-150 ease-in-out text-sm sm:text-base"
+                                    placeholder="you@example.com"
+                                />
+                            </div>
+                        </div>
+
+                        <div className="group">
+                            <label htmlFor="password" className="block text-sm font-medium text-gray-700 mb-1">
+                                Password
+                            </label>
+                            <div className="relative">
+                                <input
+                                    id="password"
+                                    name="password"
+                                    type={showPassword ? "text" : "password"}
+                                    autoComplete="new-password"
+                                    required
+                                    className="appearance-none block w-full px-3 py-2.5 sm:px-4 sm:py-3 border border-gray-300 rounded-lg shadow-sm placeholder-gray-400 text-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:border-transparent transition duration-150 ease-in-out text-sm sm:text-base"
+                                    placeholder="••••••••"
+                                />
+                                <button
+                                    type="button"
+                                    onClick={togglePasswordVisibility}
+                                    className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500 hover:text-gray-700 focus:outline-none"
+                                >
+                                    {showPassword ? <EyeOff /> : <Eye />}
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className="mt-6 sm:mt-8">
+                        <button
+                            type="submit"
+                            className="group relative w-full flex justify-center py-2.5 sm:py-3 px-4 border border-transparent text-sm font-medium rounded-lg text-white bg-gray-800 hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 shadow-sm transform transition duration-150 ease-in-out hover:translate-y-[-1px] hover:shadow-md"
+                        >
+                            {authType === 'signup' ? 'Create Account' : 'Sign In'}
+                        </button>
+                    </div>
+                </form>
+
+                <div className="text-center mt-4 sm:mt-6 pt-4 sm:pt-5 border-t border-gray-200">
+                    <p className="text-sm sm:text-sm text-gray-600">
+                        {authType === 'signup' ? 'Already have an account?' : "Don't have an account?"}{" "}
+                        <Link href={authType === 'signup' ? '/signin' : '/signup'} className="font-semibold text-gray-800 hover:text-gray-700 transition duration-150 ease-in-out underline underline-offset-2">
+                            {authType === 'signup' ? 'Sign in' : 'Sign up'}
+                        </Link>
+                    </p>
+                </div>
+            </div>
+        </div>
+    );
+};
+
+export default AuthForm;
