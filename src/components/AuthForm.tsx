@@ -34,7 +34,7 @@ const AuthForm = ({ authType }: { authType: AuthType }) => {
 
                 <form className="mt-6 sm:mt-8 space-y-4 sm:space-y-6" action="#" method="POST">
                     <div className="rounded-md space-y-4 sm:space-y-5">
-                        {authType === 'signup' && (
+                        {authType === 'signup' ? (
                             <div className="group">
                                 <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
                                     Username
@@ -50,7 +50,7 @@ const AuthForm = ({ authType }: { authType: AuthType }) => {
                                     />
                                 </div>
                             </div>
-                        )}
+                        ) : (null)}
 
                         <div className="group">
                             <label htmlFor="email-address" className="block text-sm font-medium text-gray-700 mb-1">

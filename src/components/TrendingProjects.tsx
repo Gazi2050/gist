@@ -1,39 +1,8 @@
-import { Clock, Eye, GitFork, Star } from 'lucide-react';
+import { trendingProjects } from '@/constants/data';
+import { Clock, Eye, Star } from 'lucide-react';
 import React from 'react';
 
 const TrendingProjects = () => {
-    const trendingProjects = [
-        {
-            title: "React Custom Hook Collection",
-            description: "A collection of useful React hooks for handling common UI patterns and state management",
-            language: "TypeScript",
-            author: "reactdev",
-            stars: 1245,
-            forks: 257,
-            views: 5243,
-            timeAgo: "2 days ago",
-        },
-        {
-            title: "Python Data Visualization Toolkit",
-            description: "Comprehensive toolkit for creating beautiful data visualizations with Python",
-            language: "Python",
-            author: "datascientist",
-            stars: 989,
-            forks: 142,
-            views: 3876,
-            timeAgo: "1 week ago",
-        },
-        {
-            title: "Modern CSS Grid Layouts",
-            description: "Ready-to-use CSS Grid layout templates for modern web applications",
-            language: "CSS",
-            author: "frontendwizard",
-            stars: 712,
-            forks: 198,
-            views: 2567,
-            timeAgo: "3 days ago",
-        },
-    ]
 
     return (
         <section id="trending" className="py-16 md:py-24">
@@ -58,7 +27,7 @@ const TrendingProjects = () => {
                                 </div>
                                 <p className="text-gray-400 mb-4">{project.description}</p>
                                 <div className="flex items-center text-sm text-gray-400 mb-4">
-                                    <span className="mr-4">@{project.author}</span>
+                                    <span className="mr-4">@{project.username}</span>
                                     <span className="flex items-center">
                                         <Clock className="h-4 w-4 mr-1" />
                                         {project.timeAgo}
@@ -68,10 +37,6 @@ const TrendingProjects = () => {
                                     <div className="flex items-center">
                                         <Star className="h-4 w-4 mr-1 text-violet-400" />
                                         <span>{project.stars}</span>
-                                    </div>
-                                    <div className="flex items-center">
-                                        <GitFork className="h-4 w-4 mr-1 text-violet-400" />
-                                        <span>{project.forks}</span>
                                     </div>
                                     <div className="flex items-center">
                                         <Eye className="h-4 w-4 mr-1 text-violet-400" />
@@ -84,7 +49,6 @@ const TrendingProjects = () => {
                 </div>
             </div>
         </section>
-
     );
 };
 

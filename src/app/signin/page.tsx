@@ -2,7 +2,7 @@ import AuthForm from '@/components/AuthForm';
 
 const page = () => {
     return (
-        <AuthForm authType='signup' />
+        <AuthForm authType='signin' />
     );
 };
 
