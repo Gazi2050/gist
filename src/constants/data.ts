@@ -1,9 +1,9 @@
-import { Code, Share2, Users } from "lucide-react";
+import { Code, Eye, Share2, Sliders, Star, Users } from "lucide-react";
 
 export const featureList = [
     {
-        title: 'Syntax Highlighting',
-        description: 'Support for over 100 programming languages with beautiful syntax highlighting to make your code readable.',
+        title: 'Code Formatting',
+        description: 'Automatically format your code to improve readability and structure.',
         icon: Code,
     },
     {
@@ -48,3 +48,23 @@ export const trendingProjects = [
     },
 ];
 
+export const editorFeature = [
+    {
+        icon: Sliders,
+        title: "Code Formatting",
+        description: "Click to automatically format your code, ensuring proper indentation, spacing, and readability for easier maintenance and collaboration.",
+        color: 'violet-400'
+    },
+    {
+        icon: Star,
+        title: "Stars",
+        description: "Rate your code with a star system to indicate its quality or popularity within the developer community, helping others find top-rated solutions.",
+        color: 'yellow-400'
+    },
+    {
+        icon: Eye,
+        title: "View Count",
+        description: "Keep track of how often your code is viewed by others, providing insight into its relevance and reach within the developer community.",
+        color: 'green-400'
+    },
+];

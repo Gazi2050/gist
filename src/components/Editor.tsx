@@ -60,11 +60,20 @@ const Editor: React.FC<EditorProps> = ({ language, code: initialCode = `` }) => 
 
     return (
         <div>
+            <div className='flex justify-end items-center mb-2 md:hidden'>
+                <button
+                    onClick={formatCode}
+                    className="px-2 py-1 text-sm bg-black text-violet-400 font-bold cursor-pointer duration-300 rounded-lg"
+                >
+                    Format Code
+                </button>
+            </div>
+
             <div className="relative rounded-lg border border-gray-600">
                 {/* Position the Format Code button in the top-right corner */}
                 <button
                     onClick={formatCode}
-                    className="absolute top-2 right-2 px-2 py-1 text-sm bg-black text-violet-400 font-bold cursor-pointer duration-300 rounded-lg"
+                    className="absolute top-2 right-2 px-2 py-1 text-sm bg-black text-violet-400 font-bold cursor-pointer duration-300 rounded-lg hidden md:block"
                 >
                     Format Code
                 </button>
@@ -74,15 +83,16 @@ const Editor: React.FC<EditorProps> = ({ language, code: initialCode = `` }) => 
                         ref={lineRef}
                         value={getLineNumbers(code)}
                         readOnly
-                        className="p-2 text-right text-violet-400 bg-black resize-none overflow-hidden h-full text-sm leading-[1.5em] border-r border-zinc-700"
+                        className="py-4 px-2 text-right text-violet-400 bg-black resize-none overflow-hidden h-full text-sm leading-[1.5em] border-r border-zinc-700"
                         style={{ width: calculateLineWidth(code) }}
                     />
                     <textarea
                         ref={codeRef}
                         value={code}
                         onChange={(e) => setCode(e.target.value)}
+                        spellCheck="false"
                         placeholder="// Start typing your code..."
-                        className="flex-1 p-2 text-white bg-zinc-900 resize-none h-full outline-none text-sm leading-[1.5em] overflow-auto whitespace-pre"
+                        className="flex-1 p-4 text-violet-300 bg-zinc-900 resize-none h-full outline-none text-sm leading-[1.5em] overflow-auto whitespace-pre"
                     />
                 </div>
                 <div className="flex rounded-b-lg justify-between p-2 bg-zinc-800 text-sm text-gray-400 border-t border-zinc-700">
