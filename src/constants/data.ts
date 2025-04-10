@@ -53,18 +53,18 @@ export const editorFeature = [
         icon: Sliders,
         title: "Code Formatting",
         description: "Click to automatically format your code, ensuring proper indentation, spacing, and readability for easier maintenance and collaboration.",
-        color: 'violet-400'
+        color: '#a78bfa'
     },
     {
         icon: Star,
         title: "Stars",
         description: "Rate your code with a star system to indicate its quality or popularity within the developer community, helping others find top-rated solutions.",
-        color: 'yellow-400'
+        color: '#facc15'
     },
     {
         icon: Eye,
         title: "View Count",
         description: "Keep track of how often your code is viewed by others, providing insight into its relevance and reach within the developer community.",
-        color: 'green-400'
+        color: '#4ade80'
     },
 ];

@@ -11,7 +11,7 @@ const Newsletter = () => {
         setEmail("")
     }
     return (
-        <section className="py-16 md:py-24">
+        <section className="py-16 md:py-24 bg-gray-900">
             <div className="container mx-auto px-4">
                 <div className="max-w-3xl mx-auto text-center">
                     <h2 className="text-3xl font-bold mb-4">Stay Updated</h2>

@@ -38,7 +38,7 @@ const EditorSection = () => {
                             return (
                                 <div key={index} className="bg-gray-800 p-4 rounded-lg">
                                     <div className="flex items-center mb-3">
-                                        <Icon className={`h-5 w-5 text-${item.color} mr-2`} />
+                                        <Icon color={item.color} className={`h-5 w-5 mr-2`} />
                                         <h3 className="font-bold text-white">{item.title}</h3>
                                     </div>
                                     <p className="text-gray-400 text-sm">{item.description}</p>
