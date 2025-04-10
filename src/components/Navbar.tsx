@@ -33,7 +33,7 @@ const Navbar = () => {
                     <div className="flex items-center space-x-3 z-20">
                         <Link
                             href="/signin"
-                            className="rounded-md border border-violet-600 px-4 py-2 text-white hover:bg-gray-50/9 transition duration-300 font-semibold cursor-pointer"
+                            className="rounded-md border border-violet-600 px-4 py-2 text-white hover:bg-violet-900/30 transition duration-300 font-semibold cursor-pointer"
                         >
                             Sign In
                         </Link>

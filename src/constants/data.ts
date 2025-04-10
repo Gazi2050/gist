@@ -68,3 +68,31 @@ export const editorFeature = [
         color: '#4ade80'
     },
 ];
+
+export const faqs = [
+    {
+        question: "How do I share my code?",
+        answer:
+            "To share your code, just create a new gist, paste your code snippet, write a brief description, and click 'Create'. You'll immediately get a link that you can share anywhere.",
+    },
+    {
+        question: "Is my code private or public?",
+        answer:
+            "You decide! Gists can be either public or private. Public gists are visible to anyone and can be discovered by others, while private gists are only accessible to you or those you share the link with.",
+    },
+    {
+        question: "Can I edit a gist after creating it?",
+        answer:
+            "Yes, you can update your gist at any time. Just open it, make your changes, and hit 'Save'—your shared link stays the same.",
+    },
+    {
+        question: "Do I need an account to create or view gists?",
+        answer:
+            "You can view public gists without an account, but you'll need to sign in to create, edit, or manage your own gists.",
+    },
+    {
+        question: "Can other people react to my gists?",
+        answer:
+            "Yes! You can see how many people have viewed your gist through the view count. If someone likes your code, they can star it—it's a simple way to show appreciation.",
+    }
+];

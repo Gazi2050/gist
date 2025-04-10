@@ -1,55 +1,56 @@
-"use client"
-import { ChevronDown } from 'lucide-react';
-import { useState } from 'react';
+"use client";
+
+import { faqs } from "@/constants/data";
+import { ChevronDown } from "lucide-react";
+import { useState } from "react";
 
 const Faq = () => {
-    const [openFaq, setOpenFaq] = useState<number | null>(null)
+    const [openFaq, setOpenFaq] = useState<number | null>(null);
 
     const toggleFaq = (index: number) => {
-        setOpenFaq(openFaq === index ? null : index)
-    }
-
-    const faqs = [
-        {
-            question: "How do I share my code?",
-            answer:
-                "Simply create a new gist, paste your code, add a description, and click 'Create'. You'll get a shareable link instantly.",
-        },
-        {
-            question: "Is my code private or public?",
-            answer:
-                "You can choose! We offer both public and private sharing options. Public gists are discoverable, while private ones are only accessible via direct link.",
-        },
-        {
-            question: "What languages are supported?",
-            answer:
-                "We support syntax highlighting for over 100 programming languages including JavaScript, Python, Ruby, Go, Rust, C++, and many more.",
-        },
-        {
-            question: "Can I collaborate with others?",
-            answer: "Yes! You can invite collaborators to your gists, allowing them to view and edit your code snippets.",
-        },
-    ]
+        setOpenFaq(openFaq === index ? null : index);
+    };
 
     return (
-        <section id="faq" className="py-16 md:py-24 bg-black">
+        <section id="faq" className="py-16 md:py-24 bg-black text-white">
             <div className="container mx-auto px-4">
-                <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">Frequently Asked Questions</h2>
+                <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
+                    Frequently Asked Questions
+                </h2>
                 <div className="max-w-3xl mx-auto space-y-4">
-                    {faqs.map((faq, index) => (
-                        <div key={index} className="border border-gray-800 rounded-lg overflow-hidden">
-                            <button
-                                className="flex justify-between items-center w-full p-4 text-left"
-                                onClick={() => toggleFaq(index)}
+                    {faqs.map((faq, index) => {
+                        const isOpen = openFaq === index;
+
+                        return (
+                            <div
+                                key={index}
+                                className="border border-gray-800 rounded-lg overflow-hidden transition-all"
                             >
-                                <span className="font-medium text-lg">{faq.question}</span>
-                                <ChevronDown
-                                    className={`h-5 w-5 transition-transform ${openFaq === index ? "transform rotate-180" : ""}`}
-                                />
-                            </button>
-                            {openFaq === index && <div className="p-4 pt-0 text-gray-400">{faq.answer}</div>}
-                        </div>
-                    ))}
+                                <button
+                                    onClick={() => toggleFaq(index)}
+                                    className="flex items-center justify-between w-full gap-4 p-4 text-left focus:outline-none"
+                                    aria-expanded={isOpen}
+                                >
+                                    <span className="text-base md:text-lg font-medium flex-1">
+                                        {faq.question}
+                                    </span>
+                                    <ChevronDown
+                                        className={`h-5 w-5 shrink-0 transition-transform duration-300 ${isOpen ? "rotate-180" : ""
+                                            }`}
+                                    />
+                                </button>
+
+                                <div
+                                    className={`grid transition-all duration-300 ease-in-out ${isOpen ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
+                                        }`}
+                                >
+                                    <div className="overflow-hidden px-4 pb-4 text-gray-400">
+                                        {faq.answer}
+                                    </div>
+                                </div>
+                            </div>
+                        );
+                    })}
                 </div>
             </div>
         </section>

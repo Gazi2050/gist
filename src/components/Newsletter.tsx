@@ -1,40 +1,45 @@
-"use client"
-import React, { useState } from 'react';
+"use client";
+import React, { useState } from "react";
 
 const Newsletter = () => {
-    const [email, setEmail] = useState("")
+    const [email, setEmail] = useState("");
 
     const handleSubscribe = (e: React.FormEvent) => {
-        e.preventDefault()
-        // Handle newsletter subscription
-        alert(`Thank you for subscribing with ${email}!`)
-        setEmail("")
-    }
+        e.preventDefault();
+        alert(`Thank you for subscribing with ${email}!`);
+        setEmail("");
+    };
+
     return (
-        <section className="py-16 md:py-24 bg-gray-900">
-            <div className="container mx-auto px-4">
-                <div className="max-w-3xl mx-auto text-center">
-                    <h2 className="text-3xl font-bold mb-4">Stay Updated</h2>
-                    <p className="text-gray-400 mb-8">
-                        Subscribe to our newsletter to get the latest updates, tips, and resources for developers.
+        <section className="py-20 md:py-28 bg-gray-900 text-white">
+            <div className="container mx-auto px-6">
+                <div className="max-w-2xl mx-auto text-center">
+                    <h2 className="text-4xl font-extrabold mb-4">Stay in the Loop</h2>
+                    <p className="text-gray-400 text-lg mb-8">
+                        Subscribe to our newsletter for updates, insights, and resources—delivered weekly to your inbox.
                     </p>
-                    <form onSubmit={handleSubscribe} className="flex flex-col sm:flex-row gap-3 max-w-lg mx-auto">
+                    <form
+                        onSubmit={handleSubscribe}
+                        className="flex flex-col sm:flex-row gap-4 max-w-xl mx-auto"
+                    >
                         <input
                             type="email"
-                            placeholder="Enter your email"
-                            className="flex-1 px-4 py-3 rounded-md bg-gray-900 border border-gray-800 focus:outline-none focus:border-violet-500 text-[#F7F7F7]"
+                            placeholder="you@example.com"
+                            className="flex-1 px-5 py-3 rounded-xl bg-black/60 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-violet-500 placeholder-gray-400 text-white"
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
                             required
                         />
                         <button
                             type="submit"
-                            className="px-6 py-3 rounded-md bg-violet-600 text-white font-medium hover:bg-violet-500 transition"
+                            className="px-6 py-3 rounded-xl bg-violet-600 text-white font-semibold hover:bg-violet-500 transition-all duration-200"
                         >
                             Subscribe
                         </button>
                     </form>
-                    <p className="text-xs text-gray-500 mt-4">We respect your privacy. Unsubscribe at any time.</p>
+                    <p className="text-sm text-gray-500 mt-4">
+                        We respect your privacy. Unsubscribe anytime.
+                    </p>
                 </div>
             </div>
         </section>

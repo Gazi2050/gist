@@ -5,7 +5,7 @@ import React from 'react';
 const TrendingProjects = () => {
 
     return (
-        <section id="trending" className="py-16 md:py-24">
+        <section className="py-16 md:py-24">
             <div className="container mx-auto px-4">
                 <div className="flex justify-between items-center mb-8">
                     <h2 className="text-3xl font-bold">Trending Projects</h2>
