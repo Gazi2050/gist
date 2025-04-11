@@ -125,11 +125,17 @@ export const AuthFormFields = {
         placeholder: "••••••••",
         validation: {
             required: "Password is required",
-            pattern: {
-                value:
-                    /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@#$%&])[A-Za-z\d@#$%&]{8,}$/,
-                message:
-                    "Min 8 chars, 1 upper, 1 lower, 1 number, 1 special (@#$%&)",
+            validate: {
+                hasUpperCase: (value: string) =>
+                    /[A-Z]/.test(value) || "At least one uppercase letter required",
+                hasLowerCase: (value: string) =>
+                    /[a-z]/.test(value) || "At least one lowercase letter required",
+                hasNumber: (value: string) =>
+                    /\d/.test(value) || "At least one number required",
+                hasSpecialChar: (value: string) =>
+                    /[@#$%&]/.test(value) || "At least one special character (@#$%&) required",
+                hasMinLength: (value: string) =>
+                    value.length >= 8 || "Minimum 8 characters required",
             },
         },
     },

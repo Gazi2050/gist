@@ -2,12 +2,12 @@
 
 import { AuthFormFields } from "@/constants/data";
 import { AuthFormData, AuthFormProps } from "@/constants/type";
-import { Code, Eye, EyeOff } from "lucide-react";
+import { Code, Eye, EyeOff, LoaderCircle } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 
-const AuthForm = ({ authType, onAuthSubmit }: AuthFormProps) => {
+const AuthForm = ({ authType, onAuthSubmit, loading = false }: AuthFormProps) => {
     const [showPassword, setShowPassword] = useState(false);
 
     const {
@@ -123,7 +123,13 @@ const AuthForm = ({ authType, onAuthSubmit }: AuthFormProps) => {
                                     {showPassword ? <EyeOff /> : <Eye />}
                                 </button>
                             </div>
-                            {errors.password && (
+                            {errors.password?.types &&
+                                Object.values(errors.password.types).map((msg, idx) => (
+                                    <p key={idx} className="text-sm text-red-500 mt-1">
+                                        {msg}
+                                    </p>
+                                ))}
+                            {typeof errors.password?.message === "string" && (
                                 <p className="text-sm text-red-500 mt-1">
                                     {errors.password.message}
                                 </p>
@@ -134,9 +140,18 @@ const AuthForm = ({ authType, onAuthSubmit }: AuthFormProps) => {
                     <div className="mt-6 sm:mt-8">
                         <button
                             type="submit"
-                            className="group relative w-full flex justify-center py-2.5 sm:py-3 px-4 border border-transparent text-sm font-medium rounded-lg text-white bg-gray-800 hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 shadow-sm transform transition duration-150 ease-in-out hover:translate-y-[-1px] hover:shadow-md"
+                            disabled={loading}
+                            className={`group relative w-full flex justify-center py-2.5 sm:py-3 px-4 border border-transparent text-sm font-medium rounded-lg text-white ${loading ? "bg-gray-400 cursor-not-allowed" : "bg-gray-800 hover:bg-gray-700"
+                                } focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 shadow-sm transform transition duration-150 ease-in-out hover:translate-y-[-1px] hover:shadow-md`}
                         >
-                            {authType === "signup" ? "Create Account" : "Sign In"}
+                            {loading ? (
+                                <>
+                                    <LoaderCircle className="animate-spin h-5 w-5 mr-2" />
+                                    {authType === "signup" ? "Creating Account..." : "Signing In..."}
+                                </>
+                            ) : (
+                                authType === "signup" ? "Create Account" : "Sign In"
+                            )}
                         </button>
                     </div>
                 </form>
