@@ -96,3 +96,41 @@ export const faqs = [
             "Yes! You can see how many people have viewed your gist through the view count. If someone likes your code, they can star it—it's a simple way to show appreciation.",
     }
 ];
+
+export const AuthFormFields = {
+    username: {
+        label: "Username",
+        placeholder: "@username",
+        validation: {
+            required: "Username is required",
+            pattern: {
+                value: /^@[\w]+$/,
+                message: "Username must start with @",
+            },
+        },
+    },
+    email: {
+        label: "Email address",
+        placeholder: "you@example.com",
+        validation: {
+            required: "Email is required",
+            pattern: {
+                value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+                message: "Invalid email address",
+            },
+        },
+    },
+    password: {
+        label: "Password",
+        placeholder: "••••••••",
+        validation: {
+            required: "Password is required",
+            pattern: {
+                value:
+                    /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@#$%&])[A-Za-z\d@#$%&]{8,}$/,
+                message:
+                    "Min 8 chars, 1 upper, 1 lower, 1 number, 1 special (@#$%&)",
+            },
+        },
+    },
+};

@@ -7,9 +7,6 @@ import { usePathname } from 'next/navigation';
 const Navbar = () => {
     const path = usePathname();
 
-    // Logging the type of path for debugging purposes
-    console.log(typeof path);
-
     return (
         (path === "/signup" || path === "/signin") ? (
             null
