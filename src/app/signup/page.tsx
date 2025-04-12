@@ -7,7 +7,7 @@ import { toast } from "sonner";
 import { useState } from "react"; // Import useState for loading state
 
 const Page = () => {
-    const signup = useAuthStore((state) => state.signup);
+    const { signup } = useAuthStore();
     const route = useRouter();
 
     const [loading, setLoading] = useState(false);

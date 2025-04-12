@@ -1,8 +1,12 @@
 import Profile from '@/components/Profile';
+import ProtectedRoute from '@/libs/ProtectedRoute';
 
 const page = () => {
     return (
-        <Profile />
+        <ProtectedRoute>
+            <Profile />
+        </ProtectedRoute>
+
     );
 };
 

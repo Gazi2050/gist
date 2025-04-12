@@ -3,9 +3,12 @@ import { Code } from 'lucide-react';
 import Link from 'next/link';
 import NavLink from './NavLink';
 import { usePathname } from 'next/navigation';
+import Avatar from 'boring-avatars';
+import useAuthStore from '@/Hooks/useAuthStore';
 
 const Navbar = () => {
     const path = usePathname();
+    const { username, isAuthenticated } = useAuthStore();
 
     return (
         (path === "/signup" || path === "/signin") ? (
@@ -28,18 +31,31 @@ const Navbar = () => {
 
                     {/* Auth Buttons */}
                     <div className="flex items-center space-x-3 z-20">
-                        <Link
-                            href="/signin"
-                            className="rounded-md border border-violet-600 px-4 py-2 text-white hover:bg-violet-900/30 transition duration-300 font-semibold cursor-pointer"
-                        >
-                            Sign In
-                        </Link>
-                        <Link
-                            href="/signup"
-                            className="rounded-md bg-violet-600 px-4 py-2 text-white hover:bg-violet-500 transition duration-200 font-semibold cursor-pointer"
-                        >
-                            Sign Up
-                        </Link>
+
+                        {isAuthenticated ?
+                            (<Link href='/profile'>
+                                <Avatar
+                                    name={username ?? "anonymous"}
+                                    variant="pixel"
+                                    size={45}
+                                    colors={["#0a0310", "#2e003e", "#7a00cc", "#ff2e9a", "#d89cff"]}
+                                />
+                            </Link>)
+                            :
+                            (<>
+                                <Link
+                                    href="/signin"
+                                    className="rounded-md border border-violet-600 px-4 py-2 text-white hover:bg-violet-900/30 transition duration-300 font-semibold cursor-pointer"
+                                >
+                                    Sign In
+                                </Link>
+                                <Link
+                                    href="/signup"
+                                    className="rounded-md bg-violet-600 px-4 py-2 text-white hover:bg-violet-500 transition duration-200 font-semibold cursor-pointer"
+                                >
+                                    Sign Up
+                                </Link></>)
+                        }
                     </div>
                 </div>
             </nav>

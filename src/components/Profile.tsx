@@ -4,11 +4,17 @@ import { Star, Eye } from 'lucide-react';
 import Link from 'next/link';
 import useAuthStore from '@/Hooks/useAuthStore';
 import Avatar from 'boring-avatars';
+import { useRouter } from 'next/navigation';
 
 const Profile = () => {
-    const { username, isAuthenticated } = useAuthStore();
+    const { username, signout } = useAuthStore();
     const name = username?.replace('@', '') || '';
+    const router = useRouter();
 
+    const handleLogout = () => {
+        signout();
+        router.push("/signin");
+    };
     const repositories = [
         {
             name: 'hello-world',
@@ -57,11 +63,24 @@ const Profile = () => {
                     </h1>
                     <p className="text-lg text-gray-400 ">{username}</p>
 
-                    {/* Minimal Buttons */}
                     <div className="mt-4 flex justify-center sm:justify-start gap-3">
-                        <Link href='/' className="px-6 py-3 border border-white/40 rounded-xl text-white hover:bg-white/10 transition duration-300 ease-in-out shadow-md hover:shadow-lg">
-                            Create Gist
+                        <Link
+                            href="/"
+                            className="flex items-center gap-2 px-5 py-2.5 rounded-2xl bg-blue-600/10 border border-blue-400 text-blue-300 hover:bg-blue-600/20 transition-all duration-200"
+                        >
+                            <span className="font-medium">Create Gist</span>
                         </Link>
+                        <button
+                            onClick={handleLogout}
+                            className="flex items-center gap-2 px-5 py-2.5 rounded-2xl bg-gray-500/10 border border-white/20 text-white hover:bg-white/10 transition-all duration-200"
+                        >
+                            <span className="font-medium">Logout</span>
+                        </button>
+                        <button
+                            className="flex items-center gap-2 px-5 py-2.5 rounded-2xl bg-red-500/10 border border-red-400 text-red-300 hover:bg-red-500/20 transition-all duration-200"
+                        >
+                            <span className="font-medium">Delete Account</span>
+                        </button>
                     </div>
                 </div>
             </div>
@@ -87,7 +106,7 @@ const Profile = () => {
                                 </h3>
                                 <div className="flex items-center gap-1 text-xs text-yellow-400">
                                     <Star size={20} className="w-4 h-4" />
-                                    <span className="font-semibold text-md">{repo.stars}</span>
+                                    <span className="font-semibold text-base">{repo.stars}</span>
                                 </div>
                             </div>
                             <p className="text-sm text-gray-300 mt-1">{repo.description}</p>
@@ -95,7 +114,7 @@ const Profile = () => {
                                 <span className="italic">{repo.language}</span>
                                 <div className="flex items-center gap-1">
                                     <Eye size={20} className="text-violet-500" />
-                                    <span className="font-semibold text-md">{repo.views.toLocaleString()}</span>
+                                    <span className="font-semibold text-sm">{repo.views.toLocaleString()}</span>
                                 </div>
                             </div>
                         </div>

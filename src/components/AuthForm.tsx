@@ -22,6 +22,18 @@ const AuthForm = ({ authType, onAuthSubmit, loading = false }: AuthFormProps) =>
         setShowPassword((prev) => !prev);
     };
 
+    const getValidationRules = (field: keyof typeof AuthFormFields) => {
+        if (authType === "signin") {
+            if (field === "username") {
+                return { required: AuthFormFields.username.validation.required };
+            }
+            if (field === "password") {
+                return { required: AuthFormFields.password.validation.required };
+            }
+        }
+        return AuthFormFields[field].validation;
+    };
+
     const onSubmit = (data: AuthFormData) => {
         console.log("Form submitted with the following data:");
         console.log(data);
@@ -67,7 +79,7 @@ const AuthForm = ({ authType, onAuthSubmit, loading = false }: AuthFormProps) =>
                                 <input
                                     id="username"
                                     type="text"
-                                    {...register("username", AuthFormFields.username.validation)}
+                                    {...register("username", getValidationRules("username"))}
                                     className="w-full px-3 py-2.5 sm:px-4 sm:py-3 border border-gray-300 rounded-lg shadow-sm text-gray-900 placeholder-gray-400 text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-gray-500"
                                     placeholder={AuthFormFields.username.placeholder}
                                 />
@@ -89,7 +101,7 @@ const AuthForm = ({ authType, onAuthSubmit, loading = false }: AuthFormProps) =>
                             <input
                                 id="email"
                                 type="email"
-                                {...register("email", AuthFormFields.email.validation)}
+                                {...register("email", getValidationRules("email"))}
                                 className="w-full px-3 py-2.5 sm:px-4 sm:py-3 border border-gray-300 rounded-lg shadow-sm text-gray-900 placeholder-gray-400 text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-gray-500"
                                 placeholder={AuthFormFields.email.placeholder}
                             />
@@ -111,7 +123,7 @@ const AuthForm = ({ authType, onAuthSubmit, loading = false }: AuthFormProps) =>
                                 <input
                                     id="password"
                                     type={showPassword ? "text" : "password"}
-                                    {...register("password", AuthFormFields.password.validation)}
+                                    {...register("password", getValidationRules("password"))}
                                     className="w-full px-3 py-2.5 sm:px-4 sm:py-3 border border-gray-300 rounded-lg shadow-sm text-gray-900 placeholder-gray-400 text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-gray-500"
                                     placeholder={AuthFormFields.password.placeholder}
                                 />

@@ -78,7 +78,7 @@ export const faqs = [
     {
         question: "Is my code private or public?",
         answer:
-            "You decide! Gists can be either public or private. Public gists are visible to anyone and can be discovered by others, while private gists are only accessible to you or those you share the link with.",
+            "It's up to you! Gists can be public or private. Public gists are visible to everyone and can be discovered by others. Private gists, on the other hand, are only accessible to you.",
     },
     {
         question: "Can I edit a gist after creating it?",
@@ -126,16 +126,16 @@ export const AuthFormFields = {
         validation: {
             required: "Password is required",
             validate: {
-                hasUpperCase: (value: string) =>
-                    /[A-Z]/.test(value) || "At least one uppercase letter required",
-                hasLowerCase: (value: string) =>
-                    /[a-z]/.test(value) || "At least one lowercase letter required",
-                hasNumber: (value: string) =>
-                    /\d/.test(value) || "At least one number required",
-                hasSpecialChar: (value: string) =>
-                    /[@#$%&]/.test(value) || "At least one special character (@#$%&) required",
-                hasMinLength: (value: string) =>
-                    value.length >= 8 || "Minimum 8 characters required",
+                hasUpperCase: (value: string | undefined) =>
+                    (value && /[A-Z]/.test(value)) || "At least one uppercase letter required",
+                hasLowerCase: (value: string | undefined) =>
+                    (value && /[a-z]/.test(value)) || "At least one lowercase letter required",
+                hasNumber: (value: string | undefined) =>
+                    (value && /\d/.test(value)) || "At least one number required",
+                hasSpecialChar: (value: string | undefined) =>
+                    (value && /[@#$%&]/.test(value)) || "At least one special character (@#$%&) required",
+                hasMinLength: (value: string | undefined) =>
+                    (value && value.length >= 8) || "Minimum 8 characters required",
             },
         },
     },

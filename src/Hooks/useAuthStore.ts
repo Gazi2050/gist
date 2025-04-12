@@ -42,6 +42,7 @@ const useAuthStore = create<AuthState>()(
                     });
                 } catch (error) {
                     console.error('Login error:', error);
+                    throw error;
                 }
             },
             //SIGN-OUT
