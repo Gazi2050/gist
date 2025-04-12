@@ -1,21 +1,36 @@
-// components/ProtectedRoute.tsx
 "use client";
 
 import useAuthStore from "@/Hooks/useAuthStore";
 import { useRouter } from "next/navigation";
-import { ReactNode, useEffect } from "react";
+import { ReactNode, useEffect, useState } from "react";
 
 const ProtectedRoute = ({ children }: { children: ReactNode }) => {
     const router = useRouter();
-    const { isAuthenticated } = useAuthStore();
+    const { isAuthenticated, authLoaded } = useAuthStore();
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        if (!isAuthenticated) {
-            router.push("/signin");
+        if (!authLoaded) {
+            setLoading(true);
+            return;
         }
-    }, [isAuthenticated, router]);
 
-    return <>{isAuthenticated && children}</>;
+        if (isAuthenticated === false) {
+            router.replace("/signin");
+        }
+
+        setLoading(false);
+    }, [isAuthenticated, authLoaded, router]);
+
+    if (loading) {
+        return (
+            <div>
+                <h2>Loading...</h2>
+            </div>
+        );
+    }
+
+    return <>{isAuthenticated ? children : null}</>;
 };
 
 export default ProtectedRoute;

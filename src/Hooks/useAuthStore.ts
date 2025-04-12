@@ -8,6 +8,7 @@ const useAuthStore = create<AuthState>()(
             username: null,
             email: null,
             isAuthenticated: false,
+            authLoaded: false,
             //SIGN-UP
             signup: async (username, email, password) => {
                 try {
@@ -39,6 +40,7 @@ const useAuthStore = create<AuthState>()(
                         username: data.username,
                         email: data.email,
                         isAuthenticated: true,
+                        authLoaded: true,
                     });
                 } catch (error) {
                     console.error('Login error:', error);
@@ -47,9 +49,10 @@ const useAuthStore = create<AuthState>()(
             },
             //SIGN-OUT
             signout: () => {
-                set({ username: null, email: null, isAuthenticated: false });
+                set({ username: null, email: null, isAuthenticated: false, authLoaded: true });
                 localStorage.removeItem('auth-storage');
             },
+            setAuthLoaded: () => set({ authLoaded: true }),
         }),
         {
             name: 'auth-storage',
@@ -57,6 +60,7 @@ const useAuthStore = create<AuthState>()(
                 username: state.username,
                 email: state.email,
                 isAuthenticated: state.isAuthenticated,
+                authLoaded: state.authLoaded,
             }),
         }
     )

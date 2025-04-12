@@ -6,6 +6,7 @@ import Avatar from 'boring-avatars';
 import { useRouter } from 'next/navigation';
 import PrivateCard from './PrivateCard';
 import { Projects } from '@/constants/data';
+import { Project } from '@/constants/type';
 
 const Profile = () => {
     const { username, signout } = useAuthStore();
@@ -66,8 +67,8 @@ const Profile = () => {
                     </span>
                 </h2>
                 <div className="grid gap-4 sm:grid-cols-2">
-                    {Projects.map((Project) => (
-                        <PrivateCard key={Project._id} project={Project} />
+                    {Projects.map((project: Project) => (
+                        <PrivateCard key={project._id} project={project} />
                     ))}
                 </div>
             </div>

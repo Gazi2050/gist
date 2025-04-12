@@ -2,10 +2,9 @@ import React from 'react';
 import { Star, Eye } from 'lucide-react';
 import { Project } from '@/constants/type';
 
-const PublicCard = ({ project, key }: { project: Project, key: string }) => {
+const PublicCard = ({ project }: { project: Project }) => {
     return (
         <div
-            key={key}
             className="bg-white/5 rounded-xl overflow-hidden border border-gray-800 hover:border-white/20 transition-colors"
         >
             <div className="p-6">

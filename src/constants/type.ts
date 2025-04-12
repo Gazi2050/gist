@@ -19,12 +19,15 @@ export interface AuthState {
     username: string | null;
     email: string | null;
     isAuthenticated: boolean;
+    authLoaded: boolean;
     signup: (username: string, email: string, password: string) => Promise<void>;
     signin: (email: string, password: string) => Promise<void>;
     signout: () => void;
+    setAuthLoaded: () => void;
 }
 
-// ─── UI Component Props ─────────────────────────────────────
+
+// ─── UI Component Types ─────────────────────────────────────
 
 export interface NavLinkProps {
     label: string;

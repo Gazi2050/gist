@@ -1,10 +1,9 @@
 import { Project } from "@/constants/type";
 import { Eye, Star } from "lucide-react";
 
-const PrivateCard = ({ project, key }: { project: Project, key: string }) => {
+const PrivateCard = ({ project }: { project: Project }) => {
     return (
         <div
-            key={key}
             className="bg-white/5 border border-white/10 rounded-lg p-4 hover:border-white/20 transition"
         >
             <div className="flex justify-between items-start">
