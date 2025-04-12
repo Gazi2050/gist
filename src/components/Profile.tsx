@@ -1,10 +1,11 @@
 "use client"
 import React from 'react';
-import { Star, Eye } from 'lucide-react';
 import Link from 'next/link';
 import useAuthStore from '@/Hooks/useAuthStore';
 import Avatar from 'boring-avatars';
 import { useRouter } from 'next/navigation';
+import PrivateCard from './PrivateCard';
+import { Projects } from '@/constants/data';
 
 const Profile = () => {
     const { username, signout } = useAuthStore();
@@ -15,36 +16,6 @@ const Profile = () => {
         signout();
         router.push("/signin");
     };
-    const repositories = [
-        {
-            name: 'hello-world',
-            description: 'My first GitHub repo.',
-            language: 'JavaScript',
-            stars: 42,
-            views: 1280,
-        },
-        {
-            name: 'octo-app',
-            description: 'Automates octopus tasks. Don’t ask.',
-            language: 'TypeScript',
-            stars: 100,
-            views: 3001,
-        },
-        {
-            name: 'tailwind-profile',
-            description: 'Minimal UI with Tailwind & React.',
-            language: 'CSS',
-            stars: 68,
-            views: 2219,
-        },
-        {
-            name: 'catnip-cli',
-            description: 'CLI for Octocats who love automation.',
-            language: 'Go',
-            stars: 24,
-            views: 980,
-        },
-    ];
 
     return (
         <div className="max-w-5xl mx-auto px-4 py-14 text-white">
@@ -91,33 +62,12 @@ const Profile = () => {
                     Your Gists
                     {/* Gist Count with Full Rounded Zinc Background */}
                     <span className="bg-zinc-700 text-white rounded-full w-9 h-9 text-xl font-semibold flex justify-center items-center border border-zinc-500">
-                        {repositories.length}
+                        {Projects.length}
                     </span>
                 </h2>
                 <div className="grid gap-4 sm:grid-cols-2">
-                    {repositories.map((repo, idx) => (
-                        <div
-                            key={idx}
-                            className="bg-white/5 border border-white/10 rounded-lg p-4 hover:border-white/20 transition"
-                        >
-                            <div className="flex justify-between items-start">
-                                <h3 className="font-medium text-blue-400 hover:underline cursor-pointer">
-                                    {repo.name}
-                                </h3>
-                                <div className="flex items-center gap-1 text-xs text-yellow-400">
-                                    <Star size={20} className="w-4 h-4" />
-                                    <span className="font-semibold text-base">{repo.stars}</span>
-                                </div>
-                            </div>
-                            <p className="text-sm text-gray-300 mt-1">{repo.description}</p>
-                            <div className="flex justify-between items-center mt-3 text-xs text-gray-400">
-                                <span className="italic">{repo.language}</span>
-                                <div className="flex items-center gap-1">
-                                    <Eye size={20} className="text-violet-500" />
-                                    <span className="font-semibold text-sm">{repo.views.toLocaleString()}</span>
-                                </div>
-                            </div>
-                        </div>
+                    {Projects.map((Project) => (
+                        <PrivateCard key={Project._id} project={Project} />
                     ))}
                 </div>
             </div>

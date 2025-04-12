@@ -35,3 +35,15 @@ export interface EditorProps {
     language: string;
     code: string;
 }
+
+export type Project = {
+    _id: string;
+    title: string;
+    description: string;
+    username?: string;
+    language: string;
+    code?: string
+    time: string;
+    stars: number;
+    views: number;
+};

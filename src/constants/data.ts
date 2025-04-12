@@ -18,33 +18,36 @@ export const featureList = [
     },
 ];
 
-export const trendingProjects = [
+export const Projects = [
     {
+        _id: "1",
         title: "React Custom Hook Collection",
         description: "A collection of useful React hooks for handling common UI patterns and state management",
         language: "TypeScript",
         username: "reactdev",
         stars: 1245,
         views: 5243,
-        timeAgo: "2 days ago",
+        time: "2 days ago",
     },
     {
+        _id: "2",
         title: "Python Data Visualization Toolkit",
         description: "Comprehensive toolkit for creating beautiful data visualizations with Python",
         language: "Python",
         username: "datascientist",
         stars: 989,
         views: 3876,
-        timeAgo: "1 week ago",
+        time: "1 week ago",
     },
     {
+        _id: "3",
         title: "Modern CSS Grid Layouts",
         description: "Ready-to-use CSS Grid layout templates for modern web applications",
         language: "CSS",
         username: "frontendwizard",
         stars: 712,
         views: 2567,
-        timeAgo: "3 days ago",
+        time: "3 days ago",
     },
 ];
 
