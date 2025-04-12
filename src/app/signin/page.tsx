@@ -25,7 +25,7 @@ const Page = () => {
 
         signin(email, password)
             .then(() => {
-                route.push('/');
+                route.push('/feed');
                 toast.success('You have successfully signed in! Welcome back to Gist!');
             })
             .catch((error) => {

@@ -4,7 +4,7 @@ import { AuthFormData } from "@/constants/type";
 import useAuthStore from "@/Hooks/useAuthStore";
 import { useRouter } from "next/navigation";
 import { toast } from "sonner";
-import { useState } from "react"; // Import useState for loading state
+import { useState } from "react";
 
 const Page = () => {
     const { signup } = useAuthStore();
@@ -25,7 +25,7 @@ const Page = () => {
 
         signup(username, email, password)
             .then(() => {
-                route.push('/');
+                route.push('/feed');
                 toast.success('Your account has been created successfully! Welcome to Gist!');
             })
             .catch((error) => {
@@ -37,11 +37,13 @@ const Page = () => {
     };
 
     return (
+
         <AuthForm
             authType="signup"
             onAuthSubmit={handleAuthSubmit}
             loading={loading}
         />
+
     );
 };
 

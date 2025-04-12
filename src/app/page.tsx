@@ -7,25 +7,17 @@ import Faq from '@/components/Faq';
 import Newsletter from '@/components/Newsletter';
 import Footer from '@/components/Footer';
 import EditorSection from '@/components/EditorSection';
-import useAuthStore from '@/Hooks/useAuthStore';
-import Feed from '@/components/Feed';
 
 const Page = () => {
-  const { isAuthenticated } = useAuthStore()
   return (
     <>
-      {isAuthenticated ?
-        (<Feed />)
-        :
-        (<>
-          <Hero />
-          <Features />
-          <TrendingProjects />
-          <EditorSection />
-          <Faq />
-          <Newsletter />
-          <Footer />
-        </>)}
+      <Hero />
+      <Features />
+      <TrendingProjects />
+      <EditorSection />
+      <Faq />
+      <Newsletter />
+      <Footer />
     </>
 
   );
