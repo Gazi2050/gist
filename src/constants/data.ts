@@ -18,39 +18,6 @@ export const featureList = [
     },
 ];
 
-export const Projects = [
-    {
-        _id: "1",
-        title: "React Custom Hook Collection",
-        description: "A collection of useful React hooks for handling common UI patterns and state management",
-        language: "TypeScript",
-        username: "reactdev",
-        stars: 1245,
-        views: 5243,
-        time: "2 days ago",
-    },
-    {
-        _id: "2",
-        title: "Python Data Visualization Toolkit",
-        description: "Comprehensive toolkit for creating beautiful data visualizations with Python",
-        language: "Python",
-        username: "datascientist",
-        stars: 989,
-        views: 3876,
-        time: "1 week ago",
-    },
-    {
-        _id: "3",
-        title: "Modern CSS Grid Layouts",
-        description: "Ready-to-use CSS Grid layout templates for modern web applications",
-        language: "CSS",
-        username: "frontendwizard",
-        stars: 712,
-        views: 2567,
-        time: "3 days ago",
-    },
-];
-
 export const editorFeature = [
     {
         icon: Sliders,
@@ -143,3 +110,307 @@ export const AuthFormFields = {
         },
     },
 };
+
+export const Projects = [
+    {
+        _id: "1",
+        title: "Modern CSS Grid Layouts",
+        description: "A modern UI kit built with Tailwind CSS",
+        language: "Vue",
+        username: "datascientist",
+        stars: ['user1', 'user2', 'user1'],
+        views: ['user1', 'user2', 'user1'],
+        time: "7 days ago"
+    },
+    {
+        _id: "2",
+        title: "Django Authentication System",
+        description: "A modern UI kit built with Tailwind CSS",
+        language: "C++",
+        username: "nodeking",
+        stars: ['user1', 'user2', 'user1'],
+        views: ['user1', 'user2', 'user1'],
+        time: "1 days ago"
+    },
+    {
+        _id: "3",
+        title: "Python Data Visualization Toolkit",
+        description: "A boilerplate for building scalable Node.js REST APIs",
+        language: "Go",
+        username: "flaskfan",
+        stars: ['user1', 'user2', 'user1'],
+        views: ['user1', 'user2', 'user1'],
+        time: "24 days ago"
+    },
+    {
+        _id: "4",
+        title: "Modern CSS Grid Layouts",
+        description: "Comprehensive toolkit for creating beautiful data visualizations with Python",
+        language: "Go",
+        username: "uxdesigner",
+        stars: ['user1', 'user2', 'user1'],
+        views: ['user1', 'user2', 'user1'],
+        time: "14 days ago"
+    },
+    {
+        _id: "5",
+        title: "Python Data Visualization Toolkit",
+        description: "Animated components and transitions for Vue.js apps",
+        language: "JavaScript",
+        username: "flaskfan",
+        stars: ['user1', 'user2', 'user1'],
+        views: ['user1', 'user2', 'user1'],
+        time: "9 days ago"
+    },
+    {
+        _id: "6",
+        title: "Next.js SEO Components",
+        description: "A modern UI kit built with Tailwind CSS",
+        language: "Rust",
+        username: "phpwizard",
+        stars: ['user1', 'user2', 'user1'],
+        views: ['user1', 'user2', 'user1'],
+        time: "5 days ago"
+    },
+    {
+        _id: "7",
+        title: "Python Data Visualization Toolkit",
+        description: "Animated components and transitions for Vue.js apps",
+        language: "CSS",
+        username: "backendguru",
+        stars: ['user1', 'user2', 'user1'],
+        views: ['user1', 'user2', 'user1'],
+        time: "26 days ago"
+    },
+    {
+        _id: "8",
+        title: "Vue.js Animation Components",
+        description: "Comprehensive toolkit for creating beautiful data visualizations with Python",
+        language: "Ruby",
+        username: "reactdev",
+        stars: ['user1', 'user2', 'user1'],
+        views: ['user1', 'user2', 'user1'],
+        time: "28 days ago"
+    },
+    {
+        _id: "9",
+        title: "Modern CSS Grid Layouts",
+        description: "A boilerplate for building scalable Node.js REST APIs",
+        language: "C++",
+        username: "reactdev",
+        stars: ['user1', 'user2', 'user1'],
+        views: ['user1', 'user2', 'user1'],
+        time: "6 days ago"
+    },
+    {
+        _id: "10",
+        title: "Flask API Framework",
+        description: "Comprehensive toolkit for creating beautiful data visualizations with Python",
+        language: "PHP",
+        username: "datascientist",
+        stars: ['user1', 'user2', 'user1'],
+        views: ['user1', 'user2', 'user1'],
+        time: "27 days ago"
+    },
+    {
+        _id: "11",
+        title: "Modern CSS Grid Layouts",
+        description: "A boilerplate for building scalable Node.js REST APIs",
+        language: "Vue",
+        username: "rustacean",
+        stars: ['user1', 'user2', 'user1'],
+        views: ['user1', 'user2', 'user1'],
+        time: "9 days ago"
+    },
+    {
+        _id: "12",
+        title: "React Custom Hook Collection",
+        description: "Minimalist framework for building REST APIs with Flask",
+        language: "CSS",
+        username: "flaskfan",
+        stars: ['user1', 'user2', 'user1'],
+        views: ['user1', 'user2', 'user1'],
+        time: "19 days ago"
+    },
+    {
+        _id: "13",
+        title: "Modern CSS Grid Layouts",
+        description: "Reusable components for SEO-friendly Next.js apps",
+        language: "PHP",
+        username: "datascientist",
+        stars: ['user1', 'user2', 'user1'],
+        views: ['user1', 'user2', 'user1'],
+        time: "8 days ago"
+    },
+    {
+        _id: "14",
+        title: "Node.js REST API Boilerplate",
+        description: "Comprehensive toolkit for creating beautiful data visualizations with Python",
+        language: "Go",
+        username: "nodeking",
+        stars: ['user1', 'user2', 'user1'],
+        views: ['user1', 'user2', 'user1'],
+        time: "3 days ago"
+    },
+    {
+        _id: "15",
+        title: "React Custom Hook Collection",
+        description: "Reusable components for SEO-friendly Next.js apps",
+        language: "JavaScript",
+        username: "frontendwizard",
+        stars: ['user1', 'user2', 'user1'],
+        views: ['user1', 'user2', 'user1'],
+        time: "15 days ago"
+    },
+    {
+        _id: "16",
+        title: "Tailwind CSS UI Kit",
+        description: "User authentication and authorization system built with Django",
+        language: "Python",
+        username: "phpwizard",
+        stars: ['user1', 'user2', 'user1'],
+        views: ['user1', 'user2', 'user1'],
+        time: "1 days ago"
+    },
+    {
+        _id: "17",
+        title: "Rust CLI Toolset",
+        description: "Animated components and transitions for Vue.js apps",
+        language: "Python",
+        username: "flaskfan",
+        stars: ['user1', 'user2', 'user1'],
+        views: ['user1', 'user2', 'user1'],
+        time: "22 days ago"
+    },
+    {
+        _id: "18",
+        title: "Next.js SEO Components",
+        description: "Animated components and transitions for Vue.js apps",
+        language: "PHP",
+        username: "flaskfan",
+        stars: ['user1', 'user2', 'user1'],
+        views: ['user1', 'user2', 'user1'],
+        time: "11 days ago"
+    },
+    {
+        _id: "19",
+        title: "Vue.js Animation Components",
+        description: "Animated components and transitions for Vue.js apps",
+        language: "Vue",
+        username: "reactdev",
+        stars: ['user1', 'user2', 'user1'],
+        views: ['user1', 'user2', 'user1'],
+        time: "15 days ago"
+    },
+    {
+        _id: "20",
+        title: "React Custom Hook Collection",
+        description: "Comprehensive toolkit for creating beautiful data visualizations with Python",
+        language: "JavaScript",
+        username: "uxdesigner",
+        stars: ['user1', 'user2', 'user1'],
+        views: ['user1', 'user2', 'user1'],
+        time: "18 days ago"
+    },
+    {
+        _id: "21",
+        title: "Node.js REST API Boilerplate",
+        description: "Comprehensive toolkit for creating beautiful data visualizations with Python",
+        language: "C++",
+        username: "phpwizard",
+        stars: ['user1', 'user2', 'user1'],
+        views: ['user1', 'user2', 'user1'],
+        time: "20 days ago"
+    },
+    {
+        _id: "22",
+        title: "Vue.js Animation Components",
+        description: "Minimalist framework for building REST APIs with Flask",
+        language: "Rust",
+        username: "flaskfan",
+        stars: ['user1', 'user2', 'user1'],
+        views: ['user1', 'user2', 'user1'],
+        time: "28 days ago"
+    },
+    {
+        _id: "23",
+        title: "Tailwind CSS UI Kit",
+        description: "Animated components and transitions for Vue.js apps",
+        language: "CSS",
+        username: "frontendwizard",
+        stars: ['user1', 'user2', 'user1'],
+        views: ['user1', 'user2', 'user1'],
+        time: "10 days ago"
+    },
+    {
+        _id: "24",
+        title: "Django Authentication System",
+        description: "A collection of useful React hooks for handling common UI patterns and state management",
+        language: "C++",
+        username: "rustacean",
+        stars: ['user1', 'user2', 'user1'],
+        views: ['user1', 'user2', 'user1'],
+        time: "23 days ago"
+    },
+    {
+        _id: "25",
+        title: "Flask API Framework",
+        description: "Animated components and transitions for Vue.js apps",
+        language: "JavaScript",
+        username: "flaskfan",
+        stars: ['user1', 'user2', 'user1'],
+        views: ['user1', 'user2', 'user1'],
+        time: "7 days ago"
+    },
+    {
+        _id: "26",
+        title: "Node.js REST API Boilerplate",
+        description: "Minimalist framework for building REST APIs with Flask",
+        language: "C++",
+        username: "reactdev",
+        stars: ['user1', 'user2', 'user1'],
+        views: ['user1', 'user2', 'user1'],
+        time: "2 days ago"
+    },
+    {
+        _id: "27",
+        title: "React Custom Hook Collection",
+        description: "Comprehensive toolkit for creating beautiful data visualizations with Python",
+        language: "CSS",
+        username: "flaskfan",
+        stars: ['user1', 'user2', 'user1'],
+        views: ['user1', 'user2', 'user1'],
+        time: "17 days ago"
+    },
+    {
+        _id: "28",
+        title: "Rust CLI Toolset",
+        description: "Comprehensive toolkit for creating beautiful data visualizations with Python",
+        language: "Go",
+        username: "rustacean",
+        stars: ['user1', 'user2', 'user1'],
+        views: ['user1', 'user2', 'user1'],
+        time: "4 days ago"
+    },
+    {
+        _id: "29",
+        title: "Next.js SEO Components",
+        description: "A boilerplate for building scalable Node.js REST APIs",
+        language: "C++",
+        username: "flaskfan",
+        stars: ['user1', 'user2', 'user1'],
+        views: ['user1', 'user2', 'user1'],
+        time: "19 days ago"
+    },
+    {
+        _id: "30",
+        title: "React Custom Hook Collection",
+        description: "Animated components and transitions for Vue.js apps",
+        language: "Rust",
+        username: "datascientist",
+        stars: ['user1', 'user2', 'user1'],
+        views: ['user1', 'user2', 'user1'],
+        time: "29 days ago"
+    },
+
+];

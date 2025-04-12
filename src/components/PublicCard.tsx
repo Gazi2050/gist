@@ -1,35 +1,32 @@
 import React from 'react';
-import { Clock, Star, Eye } from 'lucide-react'; // Assuming you're using lucide-react for icons
+import { Star, Eye } from 'lucide-react';
 import { Project } from '@/constants/type';
 
 const PublicCard = ({ project, key }: { project: Project, key: string }) => {
     return (
         <div
             key={key}
-            className="bg-gray-900 rounded-lg overflow-hidden border border-gray-800 hover:border-violet-500 transition-colors"
+            className="bg-white/5 rounded-xl overflow-hidden border border-gray-800 hover:border-white/20 transition-colors"
         >
             <div className="p-6">
-                <div className="flex justify-between items-start mb-3">
-                    <h3 className="font-bold text-xl">{project.title}</h3>
-                    <span className="px-2 py-1 rounded-full bg-gray-800 text-xs">
+                <div className="flex justify-between items-start mb-2">
+                    <div className='flex flex-col '>
+                        <h3 className="font-medium text-blue-400 hover:underline underline-offset-4 cursor-pointer text-xl">{project.title}</h3>
+                        <p className='text-sm text-zinc-600 font-medium mt-1'>Created {project.time}</p>
+                    </div>
+                    <span className="font-semibold text-base text-violet-500 bg-zinc-900 px-2 py-1 rounded-lg">
                         {project.language}
                     </span>
                 </div>
                 <p className="text-gray-400 mb-4">{project.description}</p>
-                <div className="flex items-center text-sm text-gray-400 mb-4">
-                    <span className="flex items-center">
-                        <Clock className="h-4 w-4 mr-1" />
-                        {project.time}
-                    </span>
-                </div>
                 <div className="flex justify-between text-sm text-gray-400 pt-4 border-t border-gray-700">
-                    <div className="flex items-center">
-                        <Star className="h-4 w-4 mr-1 text-violet-400" />
-                        <span>{project.stars}</span>
+                    <div className="flex justify-center items-center text-base">
+                        <Star className="h-5 w-5 mr-1 text-yellow-400 fill-yellow-400" />
+                        <span>{project.stars.length}</span>
                     </div>
-                    <div className="flex items-center">
-                        <Eye className="h-4 w-4 mr-1 text-violet-400" />
-                        <span>{project.views}</span>
+                    <div className="flex items-center text-base">
+                        <Eye className="h-5 w-5 mr-1 text-violet-500" />
+                        <span>{project.views.length}</span>
                     </div>
                 </div>
             </div>

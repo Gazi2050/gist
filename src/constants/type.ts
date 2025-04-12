@@ -42,8 +42,9 @@ export type Project = {
     description: string;
     username?: string;
     language: string;
-    code?: string
+    code?: string;
     time: string;
-    stars: number;
-    views: number;
+    stars: string[];
+    views: string[];
+    updatedAt?: Date;
 };

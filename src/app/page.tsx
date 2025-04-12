@@ -1,3 +1,4 @@
+"use client"
 import Hero from '@/components/Hero';
 import React from 'react';
 import Features from '../components/Features';
@@ -6,20 +7,28 @@ import Faq from '@/components/Faq';
 import Newsletter from '@/components/Newsletter';
 import Footer from '@/components/Footer';
 import EditorSection from '@/components/EditorSection';
+import useAuthStore from '@/Hooks/useAuthStore';
+import Feed from '@/components/Feed';
 
-const page = () => {
+const Page = () => {
+  const { isAuthenticated } = useAuthStore()
   return (
     <>
-      <Hero />
-      <Features />
-      <TrendingProjects />
-      <EditorSection />
-      <Faq />
-      <Newsletter />
-      <Footer />
+      {isAuthenticated ?
+        (<Feed />)
+        :
+        (<>
+          <Hero />
+          <Features />
+          <TrendingProjects />
+          <EditorSection />
+          <Faq />
+          <Newsletter />
+          <Footer />
+        </>)}
     </>
 
   );
 };
 
-export default page;
+export default Page;
