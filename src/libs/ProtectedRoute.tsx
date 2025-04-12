@@ -3,6 +3,7 @@
 import { usePathname, useRouter } from "next/navigation";
 import { ReactNode, useEffect, useState } from "react";
 import useAuthStore from "@/Hooks/useAuthStore";
+import Loading from "@/components/Loading";
 
 const publicRoutes = ["/trending", "/aboutUs"];
 const dynamicPublicPrefix = "/trending/";
@@ -43,7 +44,6 @@ const ProtectedRoute = ({ children }: { children: ReactNode }) => {
                 return;
             }
 
-            // Once auth is loaded, apply redirect logic
             const isPublic =
                 publicRoutes.includes(pathname) ||
                 pathname.startsWith(dynamicPublicPrefix);
@@ -65,7 +65,7 @@ const ProtectedRoute = ({ children }: { children: ReactNode }) => {
     }, [authLoaded, isAuthenticated, pathname, router, setAuthLoaded]);
 
     if (!authLoaded || checking) {
-        return <div>Loading...</div>;
+        return <Loading />;
     }
 
     return <>{children}</>;

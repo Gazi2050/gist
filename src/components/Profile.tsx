@@ -37,7 +37,7 @@ const Profile = () => {
 
                     <div className="mt-4 flex justify-center sm:justify-start gap-3">
                         <Link
-                            href="/"
+                            href="/createGist"
                             className="flex items-center gap-2 px-5 py-2.5 rounded-2xl bg-blue-600/10 border border-blue-400 text-blue-300 hover:bg-blue-600/20 transition-all duration-200"
                         >
                             <span className="font-medium">Create Gist</span>

@@ -1,10 +1,8 @@
-import React from 'react';
+import GistForm from "@/components/GistForm";
 
 const page = () => {
     return (
-        <div>
-
-        </div>
+        <GistForm />
     );
 };
 
