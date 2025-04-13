@@ -60,20 +60,24 @@ const Editor: React.FC<EditorProps> = ({ language, code: initialCode = `` }) => 
 
     return (
         <div>
-            <div className='flex justify-end items-center mb-2 md:hidden'>
+            {/* Label + Format button for mobile */}
+            <div className="flex items-center justify-between mb-1 ">
+                <label htmlFor="description" className="text-base font-mono font-semibold text-gray-300 ml-1">
+                    Editor
+                </label>
                 <button
                     onClick={formatCode}
-                    className="px-2 py-1 text-sm bg-black text-violet-400 font-bold cursor-pointer duration-300 rounded-lg"
+                    className="px-2 py-1 text-sm bg-black border border-gray-700 text-violet-400 font-bold cursor-pointer duration-300 rounded-lg md:hidden"
                 >
                     Format Code
                 </button>
             </div>
 
             <div className="relative rounded-lg border border-gray-600">
-                {/* Position the Format Code button in the top-right corner */}
+                {/* Format button for desktop */}
                 <button
                     onClick={formatCode}
-                    className="absolute top-2 right-2 px-2 py-1 text-sm bg-black text-violet-400 font-bold cursor-pointer duration-300 rounded-lg hidden md:block"
+                    className="absolute top-2 right-2 px-2 py-1 text-sm bg-black text-violet-400 font-bold cursor-pointer duration-300 rounded-lg hidden md:block border border-gray-700"
                 >
                     Format Code
                 </button>
@@ -95,12 +99,14 @@ const Editor: React.FC<EditorProps> = ({ language, code: initialCode = `` }) => 
                         className="flex-1 p-4 text-violet-300 bg-zinc-900 resize-none h-full outline-none text-sm leading-[1.5em] overflow-auto whitespace-pre"
                     />
                 </div>
+
                 <div className="flex rounded-b-lg justify-between p-2 bg-zinc-800 text-sm text-gray-400 border-t border-zinc-700">
                     <span>{language}</span>
                     <span>{totalLines} {totalLines === 1 ? 'Line' : 'Lines'}</span>
                 </div>
             </div>
         </div>
+
     );
 };
 

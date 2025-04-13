@@ -4,46 +4,52 @@ const Input = () => {
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
 
+    const TITLE_LIMIT = 80;
+    const DESCRIPTION_LIMIT = 200;
+
     return (
-        <div className=" text-gray-100 p-6 space-y-6 font-mono">
-            {/* Input Field */}
+        <div className="space-y-4 font-mono text-gray-100 mb-5">
+            {/* Title Input */}
             <div className="space-y-1">
-                <label htmlFor="title" className="block text-sm font-semibold text-gray-300">Title</label>
+                <label htmlFor="title" className="block text-base font-semibold text-gray-300 ml-1">Title</label>
                 <div className="relative">
                     <input
                         id="title"
                         type="text"
                         value={title}
                         onChange={(e) => setTitle(e.target.value)}
-                        maxLength="100"
-                        className="w-full px-3 py-2 bg-gray-800 border border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        maxLength={TITLE_LIMIT}
                         placeholder="Enter a title..."
+                        className="w-full px-4 py-3 text-violet-300 bg-zinc-900 resize-none outline-none text-sm leading-[1.5em] overflow-auto border border-gray-700 rounded-md"
                     />
-                    {/* Character count for input */}
-                    <div className="absolute  right-2 text-xs text-gray-500">
-                        {title.length}/100
+                    <div className="absolute right-2 mt-1 text-xs text-gray-500">
+                        {title.length}/{TITLE_LIMIT}
                     </div>
                 </div>
+                {title.length === TITLE_LIMIT && (
+                    <p className="text-xs text-red-500">Title has reached the maximum length.</p>
+                )}
             </div>
 
-            {/* Textarea Field */}
+            {/* Description Textarea */}
             <div className="space-y-1">
-                <label htmlFor="description" className="block text-sm font-semibold text-gray-300">Description</label>
+                <label htmlFor="description" className="block text-base font-semibold text-gray-300 ml-1">Description</label>
                 <div className="relative">
                     <textarea
                         id="description"
                         value={description}
                         onChange={(e) => setDescription(e.target.value)}
-                        maxLength="100"
-                        rows="5"
-                        className="w-full px-3 py-2 bg-gray-800 border border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 resize-none"
+                        maxLength={DESCRIPTION_LIMIT}
                         placeholder="Write something..."
-                    ></textarea>
-                    {/* Character count for textarea */}
-                    <div className="absolute  right-2 text-xs text-gray-500">
-                        {description.length}/100
+                        className="w-full h-[100px] px-4 py-4 text-violet-300 bg-zinc-900 resize-none outline-none text-sm leading-[1.5em] overflow-auto border border-gray-700 rounded-md"
+                    />
+                    <div className="absolute right-2 -mt-1 text-xs text-gray-500">
+                        {description.length}/{DESCRIPTION_LIMIT}
                     </div>
                 </div>
+                {description.length === DESCRIPTION_LIMIT && (
+                    <p className="text-xs text-red-500">Description has reached the maximum length.</p>
+                )}
             </div>
         </div>
     );
