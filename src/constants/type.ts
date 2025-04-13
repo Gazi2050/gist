@@ -1,5 +1,7 @@
 // ─── Auth Types ─────────────────────────────────────────────
 
+import { ObjectId } from "mongodb";
+
 export type AuthType = "signup" | "signin";
 
 export interface AuthFormData {
@@ -28,6 +30,10 @@ export interface AuthState {
 
 
 // ─── UI Component Types ─────────────────────────────────────
+
+export type ErrorProps = {
+    errorMessage: string;
+};
 
 export interface NavLinkProps {
     label: string;
@@ -71,3 +77,7 @@ export type Project = {
     createdAt: string;
     updatedAt?: string;
 };
+
+export interface ProjectDB extends Omit<Project, "_id"> {
+    _id: ObjectId;
+}
