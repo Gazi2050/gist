@@ -1,6 +1,5 @@
 import { connectDB } from "@/libs/connectDB";
-import { NextResponse } from "next/server";
-import type { NextRequest } from "next/server";
+import { NextResponse, NextRequest } from "next/server";
 import type { AuthFormData as User } from "@/constants/type";
 
 // POST /api/users

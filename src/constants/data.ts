@@ -43,7 +43,7 @@ export const faqs = [
     {
         question: "How do I share my code?",
         answer:
-            "To share your code, just create a new gist, paste your code snippet, write a brief description, and click 'Create'. You'll immediately get a link that you can share anywhere.",
+            "To share your code, just create a new gist, paste your code snippet, write a brief description, and click 'Create Gist'. You'll immediately get a link that you can share anywhere.",
     },
     {
         question: "Is my code private or public?",
