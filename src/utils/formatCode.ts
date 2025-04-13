@@ -1,3 +1,4 @@
+import { functionKeywords } from "@/constants/data";
 import { FormatCodeParams } from "@/constants/type";
 
 export const formatCode = ({ code, setCode }: FormatCodeParams): void => {
@@ -30,21 +31,23 @@ export const formatCode = ({ code, setCode }: FormatCodeParams): void => {
             continue;
         }
 
-        if (line.includes('function ') && line.includes('{')) {
-            const parts = line.split('{');
-            const params = parts[0].trim().replace('function', '').trim();
-            addFormattedLine(`function ${params} {`);
-            indentLevel += 1;
-            const innerCode = parts[1].trim().replace('}', '').trim();
-            const innerLines = innerCode.split(';');
-            innerLines.forEach((innerLine) => {
-                if (innerLine.trim()) {
-                    addFormattedLine(innerLine.trim() + ';');
-                }
-            });
-            addFormattedLine('}');
-            indentLevel -= 1;
-            continue;
+        for (const keyword of functionKeywords) {
+            if (line.includes(keyword) && line.includes('{')) {
+                const parts = line.split('{');
+                const params = parts[0].trim().replace(keyword, '').trim();
+                addFormattedLine(`${keyword} ${params} {`);
+                indentLevel += 1;
+                const innerCode = parts[1].trim().replace('}', '').trim();
+                const innerLines = innerCode.split(';');
+                innerLines.forEach((innerLine) => {
+                    if (innerLine.trim()) {
+                        addFormattedLine(innerLine.trim() + ';');
+                    }
+                });
+                addFormattedLine('}');
+                indentLevel -= 1;
+                continue;
+            }
         }
 
         addFormattedLine(line);

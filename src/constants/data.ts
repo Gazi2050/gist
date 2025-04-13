@@ -112,19 +112,31 @@ export const AuthFormFields = {
 };
 
 export const languages = [
-    'javascript', 'typescript', 'python', 'java', 'c', 'cpp', 'csharp', 'go', 'php',
-    'ruby', 'swift', 'kotlin', 'rust', 'dart', 'scala', 'r', 'shell', 'bash', 'powershell',
-    'sql', 'html', 'css', 'scss', 'less', 'json', 'yaml', 'xml', 'markdown', 'jsx',
-    'tsx', 'perl', 'lua', 'elixir', 'haskell', 'objective-c', 'matlab', 'groovy',
-    'fsharp', 'vbnet', 'assembly', 'julia', 'coffeescript', 'typescriptreact', 'svelte',
-    'vue', 'angular', 'react', 'handlebars', 'ejs', 'pug', 'twig', 'nunjucks', 'liquid',
-    'dockerfile', 'makefile', 'terraform', 'hcl', 'graphql', 'protobuf', 'thrift',
-    'toml', 'ini', 'dotenv', 'csv', 'diff', 'log', 'batch', 'gcode', 'asm', 'sas',
-    'stata', 'apex', 'racket', 'scheme', 'lisp', 'clojure', 'ocaml', 'nim', 'ada',
-    'fortran', 'verilog', 'vhdl', 'plantuml', 'dot', 'mermaid', 'qsharp', 'solidity',
-    'v', 'red', 'crystal', 'vala', 'idris', 'rebol', 'factor', 'smalltalk', 'modula',
-    'tcl', 'actionscript', 'asciidoc', 'eiffel', 'abc', 'janet', 'boo', 'pony'
+    "JavaScript",
+    "Python",
+    "Java",
+    "C#",
+    "C++",
+    "TypeScript",
+    "Go",
+    "Rust",
+    "Kotlin",
+    "Swift"
 ];
+
+export const functionKeywords = [
+    "function",   // JavaScript
+    "def",        // Python
+    "void",       // Java
+    "void",       // C#
+    "void",       // C++
+    "function",   // TypeScript
+    "func",       // Go
+    "fn",         // Rust
+    "fun",        // Kotlin
+    "func"        // Swift
+];
+
 
 export const initialCode = `function factorial(n) {
     if (n === 0 || n === 1) {
