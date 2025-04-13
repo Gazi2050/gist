@@ -126,6 +126,20 @@ export const languages = [
     'tcl', 'actionscript', 'asciidoc', 'eiffel', 'abc', 'janet', 'boo', 'pony'
 ];
 
+export const initialCode = `function factorial(n) {
+    if (n === 0 || n === 1) {
+      return 1;
+    }
+  
+    let result = 1;
+    for (let i = 2; i <= n; i++) {
+      result *= i;
+    }
+  
+    return result;
+  }`;
+
+
 
 export const Projects = [
     {
@@ -136,7 +150,7 @@ export const Projects = [
         username: "datascientist",
         stars: ['user1', 'user2', 'user1'],
         views: ['user1', 'user2', 'user1'],
-        time: "7 days ago"
+        createdAt: "7 days ago"
     },
     {
         _id: "2",
@@ -146,7 +160,7 @@ export const Projects = [
         username: "nodeking",
         stars: ['user1', 'user2', 'user1'],
         views: ['user1', 'user2', 'user1'],
-        time: "1 days ago"
+        createdAt: "1 days ago"
     },
     {
         _id: "3",
@@ -156,7 +170,7 @@ export const Projects = [
         username: "flaskfan",
         stars: ['user1', 'user2', 'user1'],
         views: ['user1', 'user2', 'user1'],
-        time: "24 days ago"
+        createdAt: "24 days ago"
     },
     {
         _id: "4",
@@ -166,7 +180,7 @@ export const Projects = [
         username: "uxdesigner",
         stars: ['user1', 'user2', 'user1'],
         views: ['user1', 'user2', 'user1'],
-        time: "14 days ago"
+        createdAt: "14 days ago"
     },
     {
         _id: "5",
@@ -176,7 +190,7 @@ export const Projects = [
         username: "flaskfan",
         stars: ['user1', 'user2', 'user1'],
         views: ['user1', 'user2', 'user1'],
-        time: "9 days ago"
+        createdAt: "9 days ago"
     },
     {
         _id: "6",
@@ -186,7 +200,7 @@ export const Projects = [
         username: "phpwizard",
         stars: ['user1', 'user2', 'user1'],
         views: ['user1', 'user2', 'user1'],
-        time: "5 days ago"
+        createdAt: "5 days ago"
     },
     {
         _id: "7",
@@ -196,7 +210,7 @@ export const Projects = [
         username: "backendguru",
         stars: ['user1', 'user2', 'user1'],
         views: ['user1', 'user2', 'user1'],
-        time: "26 days ago"
+        createdAt: "26 days ago"
     },
     {
         _id: "8",
@@ -206,7 +220,7 @@ export const Projects = [
         username: "reactdev",
         stars: ['user1', 'user2', 'user1'],
         views: ['user1', 'user2', 'user1'],
-        time: "28 days ago"
+        createdAt: "28 days ago"
     },
     {
         _id: "9",
@@ -216,7 +230,7 @@ export const Projects = [
         username: "reactdev",
         stars: ['user1', 'user2', 'user1'],
         views: ['user1', 'user2', 'user1'],
-        time: "6 days ago"
+        createdAt: "6 days ago"
     },
     {
         _id: "10",
@@ -226,7 +240,7 @@ export const Projects = [
         username: "datascientist",
         stars: ['user1', 'user2', 'user1'],
         views: ['user1', 'user2', 'user1'],
-        time: "27 days ago"
+        createdAt: "27 days ago"
     },
     {
         _id: "11",
@@ -236,7 +250,7 @@ export const Projects = [
         username: "rustacean",
         stars: ['user1', 'user2', 'user1'],
         views: ['user1', 'user2', 'user1'],
-        time: "9 days ago"
+        createdAt: "9 days ago"
     },
     {
         _id: "12",
@@ -246,7 +260,7 @@ export const Projects = [
         username: "flaskfan",
         stars: ['user1', 'user2', 'user1'],
         views: ['user1', 'user2', 'user1'],
-        time: "19 days ago"
+        createdAt: "19 days ago"
     },
     {
         _id: "13",
@@ -256,7 +270,7 @@ export const Projects = [
         username: "datascientist",
         stars: ['user1', 'user2', 'user1'],
         views: ['user1', 'user2', 'user1'],
-        time: "8 days ago"
+        createdAt: "8 days ago"
     },
     {
         _id: "14",
@@ -266,7 +280,7 @@ export const Projects = [
         username: "nodeking",
         stars: ['user1', 'user2', 'user1'],
         views: ['user1', 'user2', 'user1'],
-        time: "3 days ago"
+        createdAt: "3 days ago"
     },
     {
         _id: "15",
@@ -276,7 +290,7 @@ export const Projects = [
         username: "frontendwizard",
         stars: ['user1', 'user2', 'user1'],
         views: ['user1', 'user2', 'user1'],
-        time: "15 days ago"
+        createdAt: "15 days ago"
     },
     {
         _id: "16",
@@ -286,7 +300,7 @@ export const Projects = [
         username: "phpwizard",
         stars: ['user1', 'user2', 'user1'],
         views: ['user1', 'user2', 'user1'],
-        time: "1 days ago"
+        createdAt: "1 days ago"
     },
     {
         _id: "17",
@@ -296,7 +310,7 @@ export const Projects = [
         username: "flaskfan",
         stars: ['user1', 'user2', 'user1'],
         views: ['user1', 'user2', 'user1'],
-        time: "22 days ago"
+        createdAt: "22 days ago"
     },
     {
         _id: "18",
@@ -306,7 +320,7 @@ export const Projects = [
         username: "flaskfan",
         stars: ['user1', 'user2', 'user1'],
         views: ['user1', 'user2', 'user1'],
-        time: "11 days ago"
+        createdAt: "11 days ago"
     },
     {
         _id: "19",
@@ -316,7 +330,7 @@ export const Projects = [
         username: "reactdev",
         stars: ['user1', 'user2', 'user1'],
         views: ['user1', 'user2', 'user1'],
-        time: "15 days ago"
+        createdAt: "15 days ago"
     },
     {
         _id: "20",
@@ -326,7 +340,7 @@ export const Projects = [
         username: "uxdesigner",
         stars: ['user1', 'user2', 'user1'],
         views: ['user1', 'user2', 'user1'],
-        time: "18 days ago"
+        createdAt: "18 days ago"
     },
     {
         _id: "21",
@@ -336,7 +350,7 @@ export const Projects = [
         username: "phpwizard",
         stars: ['user1', 'user2', 'user1'],
         views: ['user1', 'user2', 'user1'],
-        time: "20 days ago"
+        createdAt: "20 days ago"
     },
     {
         _id: "22",
@@ -346,7 +360,7 @@ export const Projects = [
         username: "flaskfan",
         stars: ['user1', 'user2', 'user1'],
         views: ['user1', 'user2', 'user1'],
-        time: "28 days ago"
+        createdAt: "28 days ago"
     },
     {
         _id: "23",
@@ -356,7 +370,7 @@ export const Projects = [
         username: "frontendwizard",
         stars: ['user1', 'user2', 'user1'],
         views: ['user1', 'user2', 'user1'],
-        time: "10 days ago"
+        createdAt: "10 days ago"
     },
     {
         _id: "24",
@@ -366,7 +380,7 @@ export const Projects = [
         username: "rustacean",
         stars: ['user1', 'user2', 'user1'],
         views: ['user1', 'user2', 'user1'],
-        time: "23 days ago"
+        createdAt: "23 days ago"
     },
     {
         _id: "25",
@@ -376,7 +390,7 @@ export const Projects = [
         username: "flaskfan",
         stars: ['user1', 'user2', 'user1'],
         views: ['user1', 'user2', 'user1'],
-        time: "7 days ago"
+        createdAt: "7 days ago"
     },
     {
         _id: "26",
@@ -386,7 +400,7 @@ export const Projects = [
         username: "reactdev",
         stars: ['user1', 'user2', 'user1'],
         views: ['user1', 'user2', 'user1'],
-        time: "2 days ago"
+        createdAt: "2 days ago"
     },
     {
         _id: "27",
@@ -396,7 +410,7 @@ export const Projects = [
         username: "flaskfan",
         stars: ['user1', 'user2', 'user1'],
         views: ['user1', 'user2', 'user1'],
-        time: "17 days ago"
+        createdAt: "17 days ago"
     },
     {
         _id: "28",
@@ -406,7 +420,7 @@ export const Projects = [
         username: "rustacean",
         stars: ['user1', 'user2', 'user1'],
         views: ['user1', 'user2', 'user1'],
-        time: "4 days ago"
+        createdAt: "4 days ago"
     },
     {
         _id: "29",
@@ -416,7 +430,7 @@ export const Projects = [
         username: "flaskfan",
         stars: ['user1', 'user2', 'user1'],
         views: ['user1', 'user2', 'user1'],
-        time: "19 days ago"
+        createdAt: "19 days ago"
     },
     {
         _id: "30",
@@ -426,7 +440,7 @@ export const Projects = [
         username: "datascientist",
         stars: ['user1', 'user2', 'user1'],
         views: ['user1', 'user2', 'user1'],
-        time: "29 days ago"
+        createdAt: "29 days ago"
     },
 
 ];

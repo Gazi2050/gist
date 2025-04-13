@@ -1,9 +1,6 @@
-import { useState } from 'react';
+import { InputProps } from "@/constants/type";
 
-const Input = () => {
-    const [title, setTitle] = useState('');
-    const [description, setDescription] = useState('');
-
+const Input: React.FC<InputProps> = ({ title, setTitle, description, setDescription }) => {
     const TITLE_LIMIT = 80;
     const DESCRIPTION_LIMIT = 200;
 

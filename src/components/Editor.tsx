@@ -1,9 +1,9 @@
 import { EditorProps } from '@/constants/type';
-import React, { useEffect, useRef, useState } from 'react';
+import { formatCode } from '@/utils/formatCode';
+import React, { useEffect, useRef } from 'react';
 
 
-const Editor: React.FC<EditorProps> = ({ language, code: initialCode = `` }) => {
-    const [code, setCode] = useState(initialCode);
+const Editor: React.FC<EditorProps> = ({ language, code = ``, setCode }) => {
     const lineRef = useRef<HTMLTextAreaElement>(null);
     const codeRef = useRef<HTMLTextAreaElement>(null);
 
@@ -40,22 +40,8 @@ const Editor: React.FC<EditorProps> = ({ language, code: initialCode = `` }) => 
 
     const totalLines = code.split('\n').length;
 
-    const formatCode = () => {
-        const lines = code.trim().split('\n');
-        let formatted = '';
-        let indentLevel = 0;
-        const indent = '  ';
-
-        for (const rawLine of lines) {
-            const line = rawLine.trim();
-
-            if (line.startsWith('}')) indentLevel = Math.max(0, indentLevel - 1);
-            formatted += indent.repeat(indentLevel) + line + '\n';
-
-            if (line.endsWith('{')) indentLevel += 1;
-        }
-
-        setCode(formatted.trim());
+    const handleFormat = () => {
+        formatCode({ code, setCode });
     };
 
     return (
@@ -66,7 +52,8 @@ const Editor: React.FC<EditorProps> = ({ language, code: initialCode = `` }) => 
                     Editor
                 </label>
                 <button
-                    onClick={formatCode}
+                    onClick={handleFormat}
+                    type='button'
                     className="px-2 py-1 text-sm bg-black border border-gray-700 text-violet-400 font-bold cursor-pointer duration-300 rounded-lg md:hidden"
                 >
                     Format Code
@@ -76,7 +63,8 @@ const Editor: React.FC<EditorProps> = ({ language, code: initialCode = `` }) => 
             <div className="relative rounded-lg border border-gray-600">
                 {/* Format button for desktop */}
                 <button
-                    onClick={formatCode}
+                    onClick={handleFormat}
+                    type='button'
                     className="absolute top-2 right-2 px-2 py-1 text-sm bg-black text-violet-400 font-bold cursor-pointer duration-300 rounded-lg hidden md:block border border-gray-700"
                 >
                     Format Code

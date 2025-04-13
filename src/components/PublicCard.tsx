@@ -11,7 +11,7 @@ const PublicCard = ({ project }: { project: Project }) => {
                 <div className="flex justify-between items-start mb-2">
                     <div className='flex flex-col '>
                         <h3 className="font-medium text-blue-400 hover:underline underline-offset-4 cursor-pointer text-xl">{project.title}</h3>
-                        <p className='text-sm text-zinc-600 font-medium mt-1'>Created {project.time}</p>
+                        <p className='text-sm text-zinc-600 font-medium mt-1'>Created {project.createdAt}</p>
                     </div>
                     <span className="font-semibold text-base text-violet-500 bg-zinc-900 px-2 py-1 rounded-lg">
                         {project.language}

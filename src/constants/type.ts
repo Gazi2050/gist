@@ -34,27 +34,38 @@ export interface NavLinkProps {
     href: string;
 }
 
+export interface InputProps {
+    title: string;
+    setTitle: (value: string) => void;
+    description: string;
+    setDescription: (value: string) => void;
+}
+
 export interface EditorProps {
     language: string;
     code: string;
+    setCode: (value: string) => void;
 }
-
 export interface LanguageInputProps {
     value: string;
     onChange: (lang: string) => void;
     suggestions: string[];
 }
 
+export interface FormatCodeParams {
+    code: string;
+    setCode: (code: string) => void;
+}
 
 export type Project = {
-    _id: string;
+    _id?: string;
     title: string;
     description: string;
-    username?: string;
+    username: string | null;
     language: string;
-    code?: string;
-    time: string;
+    code: string;
     stars: string[];
     views: string[];
-    updatedAt?: Date;
+    createdAt: string;
+    updatedAt?: string;
 };
