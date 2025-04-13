@@ -31,6 +31,10 @@ const GistForm = () => {
         };
 
         console.log(projectData);
+        setTitle('');
+        setDescription('');
+        setLanguage('');
+        setCode('');
     };
 
     return (
@@ -56,7 +60,7 @@ const GistForm = () => {
                 <div className="flex justify-end mt-6">
                     <button
                         type="submit"
-                        className="px-4 py-2 bg-white/5 text-white rounded-md hover:bg-zinc-800 transition-colors duration-300 border border-gray-800"
+                        className="px-4 py-2 bg-white/5 text-white rounded-md hover:bg-zinc-900 transition-colors duration-300 border border-gray-800"
                     >
                         Submit Gist
                     </button>

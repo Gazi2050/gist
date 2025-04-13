@@ -1,13 +1,17 @@
 'use client';
 
 import { LanguageInputProps } from '@/constants/type';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 const LanguageInput: React.FC<LanguageInputProps> = ({ value, onChange, suggestions }) => {
     const [input, setInput] = useState(value);
     const [showSuggestions, setShowSuggestions] = useState(false);
 
     const CHARACTER_LIMIT = 20;
+
+    useEffect(() => {
+        setInput(value);
+    }, [value]);
 
     const filteredSuggestions = suggestions.filter(
         (lang) =>
@@ -37,6 +41,7 @@ const LanguageInput: React.FC<LanguageInputProps> = ({ value, onChange, suggesti
                 Language
             </label>
             <input
+                required
                 id="language"
                 type="text"
                 value={input}

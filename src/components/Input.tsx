@@ -11,6 +11,7 @@ const Input: React.FC<InputProps> = ({ title, setTitle, description, setDescript
                 <label htmlFor="title" className="block text-base font-semibold text-gray-300 ml-1">Title</label>
                 <div className="relative">
                     <input
+                        required
                         id="title"
                         type="text"
                         value={title}
@@ -33,6 +34,7 @@ const Input: React.FC<InputProps> = ({ title, setTitle, description, setDescript
                 <label htmlFor="description" className="block text-base font-semibold text-gray-300 ml-1">Description</label>
                 <div className="relative">
                     <textarea
+                        required
                         id="description"
                         value={description}
                         onChange={(e) => setDescription(e.target.value)}

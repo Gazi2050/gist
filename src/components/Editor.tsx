@@ -83,6 +83,7 @@ const Editor: React.FC<EditorProps> = ({ language, code = ``, setCode }) => {
                         value={code}
                         onChange={(e) => setCode(e.target.value)}
                         spellCheck="false"
+                        required
                         placeholder="// Start typing your code..."
                         className="flex-1 p-4 text-violet-300 bg-zinc-900 resize-none h-full outline-none text-sm leading-[1.5em] overflow-auto whitespace-pre"
                     />
