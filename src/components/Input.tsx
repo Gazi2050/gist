@@ -22,12 +22,12 @@ const Input = () => {
                         placeholder="Enter a title..."
                         className="w-full px-4 py-3 text-violet-300 bg-zinc-900 resize-none outline-none text-sm leading-[1.5em] overflow-auto border border-gray-700 rounded-md"
                     />
-                    <div className="absolute right-2 mt-1 text-xs text-gray-500">
+                    <div className="absolute right-2 mt-1 text-sm text-gray-500">
                         {title.length}/{TITLE_LIMIT}
                     </div>
                 </div>
                 {title.length === TITLE_LIMIT && (
-                    <p className="text-xs text-red-500">Title has reached the maximum length.</p>
+                    <p className="text-sm text-red-500 mt-2 ml-1">Title has reached the maximum length.</p>
                 )}
             </div>
 
@@ -43,12 +43,12 @@ const Input = () => {
                         placeholder="Write something..."
                         className="w-full h-[100px] px-4 py-4 text-violet-300 bg-zinc-900 resize-none outline-none text-sm leading-[1.5em] overflow-auto border border-gray-700 rounded-md"
                     />
-                    <div className="absolute right-2 -mt-1 text-xs text-gray-500">
+                    <div className="absolute right-2 -mt-1 text-sm text-gray-500">
                         {description.length}/{DESCRIPTION_LIMIT}
                     </div>
                 </div>
                 {description.length === DESCRIPTION_LIMIT && (
-                    <p className="text-xs text-red-500">Description has reached the maximum length.</p>
+                    <p className="text-sm text-red-500 -mt-1 ml-1">Description has reached the maximum length.</p>
                 )}
             </div>
         </div>

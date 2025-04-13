@@ -39,6 +39,13 @@ export interface EditorProps {
     code: string;
 }
 
+export interface LanguageInputProps {
+    value: string;
+    onChange: (lang: string) => void;
+    suggestions: string[];
+}
+
+
 export type Project = {
     _id: string;
     title: string;
