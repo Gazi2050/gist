@@ -17,7 +17,7 @@ const PrivateCard = ({ project }: { project: Project }) => {
             </div>
             <p className="text-sm text-gray-300 mt-1">{project.description}</p>
             <div className="flex justify-between items-center mt-3 text-xs text-gray-400">
-                <span className="font-semibold text-xs text-violet-500 bg-zinc-900 px-2 py-1 rounded-lg">{project.language}</span>
+                <span className="font-semibold font-mono text-sm text-violet-500 bg-zinc-900 px-2 py-1 rounded-lg">{project.language}</span>
                 <div className="flex items-center gap-1">
                     <Eye size={20} className="text-violet-500" />
                     <span className="font-semibold text-sm">{project.views.length}</span>

@@ -4,6 +4,7 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import { Toaster } from "sonner";
 import ProtectedRoute from "@/libs/ProtectedRoute";
+import Provider from "@/libs/Provider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -29,11 +30,13 @@ export default function RootLayout({
     <html lang="en">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-        <ProtectedRoute>
-          <Navbar />
-          <Toaster position="top-center" richColors />
-          {children}
-        </ProtectedRoute>
+        <Provider>
+          <ProtectedRoute>
+            <Navbar />
+            <Toaster position="top-center" richColors />
+            {children}
+          </ProtectedRoute>
+        </Provider>
       </body>
     </html>
   );
