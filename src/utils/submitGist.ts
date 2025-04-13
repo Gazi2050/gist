@@ -1,6 +1,7 @@
-import { Project } from "@/constants/type";
+import { GistFormType } from "@/constants/type";
 
-export const submitGist = async (projectData: Project) => {
+
+export const submitGist = async (projectData: GistFormType) => {
     try {
 
         const response = await fetch('/api/gists', {

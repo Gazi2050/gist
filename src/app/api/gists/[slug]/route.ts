@@ -7,7 +7,7 @@ import { NextRequest, NextResponse } from "next/server";
 // GET /api/gists/:id
 export const GET = async (_req: NextRequest, { params }: { params: { slug: string } }) => {
     try {
-        const { slug } = params;
+        const { slug } = await params;
 
         if (!ObjectId.isValid(slug)) {
             return NextResponse.json({ message: "Invalid ID format" }, { status: 400 });

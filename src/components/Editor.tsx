@@ -46,9 +46,9 @@ const Editor: React.FC<EditorProps> = ({ language, code = ``, setCode, readOnly 
         <div>
             {/* Label + Button */}
             <div className="flex items-center justify-between mb-1 ">
-                <label htmlFor="description" className="text-base font-mono font-semibold text-gray-300 ml-1">
+                {readOnly ? <div></div> : (<label htmlFor="description" className="text-base font-mono font-semibold text-gray-300 ml-1">
                     Editor
-                </label>
+                </label>)}
                 <button
                     onClick={readOnly ? handleCopy : handleFormat}
                     type='button'
@@ -73,7 +73,7 @@ const Editor: React.FC<EditorProps> = ({ language, code = ``, setCode, readOnly 
                         ref={lineRef}
                         value={getLineNumbers(code)}
                         readOnly
-                        className="py-4 px-2 text-right text-violet-400 bg-black resize-none overflow-hidden h-full text-sm leading-[1.5em] border-r border-zinc-700"
+                        className="py-4 px-2 text-right text-violet-400 bg-black resize-none overflow-hidden outline-none h-full text-sm leading-[1.5em] border-r border-zinc-700"
                         style={{ width: calculateLineWidth(code) }}
                     />
                     <textarea

@@ -6,7 +6,7 @@ import Input from './Input';
 import LanguageInput from './LanguageInput';
 import { languages } from '@/constants/data';
 import useAuthStore from '@/Hooks/useAuthStore';
-import { Project } from '@/constants/type';
+import { GistFormType } from '@/constants/type';
 import moment from 'moment';
 import { submitGist } from '@/utils/submitGist';
 import { toast } from 'sonner';
@@ -25,9 +25,9 @@ const GistForm = () => {
 
     const handleSubmit = (event: React.FormEvent) => {
         event.preventDefault();
-        setLoading(true); // 👈 Set loading to true
+        setLoading(true);
 
-        const projectData: Project = {
+        const projectData: GistFormType = {
             title,
             description,
             username,

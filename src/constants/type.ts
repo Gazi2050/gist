@@ -28,7 +28,6 @@ export interface AuthState {
     setAuthLoaded: () => void;
 }
 
-
 // ─── UI Component Types ─────────────────────────────────────
 
 export type ErrorProps = {
@@ -69,7 +68,7 @@ export type Project = {
     _id?: string;
     title: string;
     description: string;
-    username: string | null;
+    username: string;
     language: string;
     code?: string;
     stars: string[];
@@ -77,6 +76,10 @@ export type Project = {
     createdAt: string;
     updatedAt?: string;
 };
+
+export interface GistFormType extends Omit<Project, "username"> {
+    username: string | null;
+}
 
 export interface ProjectDB extends Omit<Project, "_id"> {
     _id: ObjectId;

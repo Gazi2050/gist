@@ -7,10 +7,10 @@ export async function fetchGists() {
             throw new Error("Network response was not ok");
         }
         const gists = await response.json();
-        console.log("Fetched gists:", gists);
-        return gists || null;
+        // console.log("Fetched gists:", gists);
+        return gists || [];
     } catch (error) {
-        console.error("Error fetching posts:", error);
+        console.error("Error fetching gists:", error);
         return null;
     }
 }
