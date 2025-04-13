@@ -41,29 +41,29 @@ export const editorFeature = [
 
 export const faqs = [
     {
-        question: "How do I share my code?",
+        question: "How can I share my code?",
         answer:
-            "To share your code, just create a new gist, paste your code snippet, write a brief description, and click 'Create Gist'. You'll immediately get a link that you can share anywhere.",
+            "To share your code, simply create a new gist, paste your code snippet, add a brief description, and click 'Create Gist.' You'll then receive a unique link that you can share anywhere.",
     },
     {
-        question: "Is my code private or public?",
+        question: "Which programming languages are supported in gists?",
         answer:
-            "It's up to you! Gists can be public or private. Public gists are visible to everyone and can be discovered by others. Private gists, on the other hand, are only accessible to you.",
+            "Gists support a wide range of programming languages, including JavaScript, Python, Java, and many others.",
     },
     {
-        question: "Can I edit a gist after creating it?",
+        question: "Can I edit my gist after it's been created?",
         answer:
-            "Yes, you can update your gist at any time. Just open it, make your changes, and hit 'Save'—your shared link stays the same.",
+            "Yes, you can update your gist at any time. Just open it, make your changes, and click 'Save.' The shared link will remain unchanged.",
     },
     {
         question: "Do I need an account to create or view gists?",
         answer:
-            "You can view public gists without an account, but you'll need to sign in to create, edit, or manage your own gists.",
+            "You can view gists without an account, but to create, edit, or manage your own gists, you'll need to sign in.",
     },
     {
-        question: "Can other people react to my gists?",
+        question: "Can others interact with my gists?",
         answer:
-            "Yes! You can see how many people have viewed your gist through the view count. If someone likes your code, they can star it—it's a simple way to show appreciation.",
+            "Yes! You can track how many people have viewed your gist via the view count. If someone appreciates your code, they can star your gist—an easy way to show their support.",
     }
 ];
 

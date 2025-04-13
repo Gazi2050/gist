@@ -45,7 +45,9 @@ export interface EditorProps {
     language: string;
     code: string;
     setCode: (value: string) => void;
+    readOnly?: boolean;
 }
+
 export interface LanguageInputProps {
     value: string;
     onChange: (lang: string) => void;
@@ -63,7 +65,7 @@ export type Project = {
     description: string;
     username: string | null;
     language: string;
-    code: string;
+    code?: string;
     stars: string[];
     views: string[];
     createdAt: string;
