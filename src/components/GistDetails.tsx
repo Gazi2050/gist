@@ -11,10 +11,11 @@ import {
 } from 'lucide-react';
 import InfoItem from './InfoItem';
 import { getFileExtension } from '@/utils/getFileExtension';
-import { Project } from '@/constants/type';
+import { UpdateGistProps } from '@/constants/type';
+import Link from 'next/link';
 
-const GistDetails = ({ projects }: { projects: Project }) => {
-    const { title = 'Untitled', description = '', username = 'Unknown', language = 'Unknown', code = '// No code available', createdAt, updatedAt, stars = [], views = [] } = projects;
+const GistDetails: React.FC<UpdateGistProps> = ({ projects, action = "false" }) => {
+    const { _id: id, title = 'Untitled', description = '', username = 'Unknown', language = 'Unknown', code = '// No code available', createdAt, updatedAt, stars = [], views = [] } = projects;
 
     const createdAtFormatted = createdAt ? moment(createdAt).fromNow() : 'Unknown date';
     const updatedAtFormatted = updatedAt ? moment(updatedAt).fromNow() : null;
@@ -35,7 +36,20 @@ const GistDetails = ({ projects }: { projects: Project }) => {
                             <InfoItem Icon={Star} text={stars.length.toString()} />
                             <InfoItem Icon={Eye} text={views.length.toString()} />
                             <InfoItem Icon={Code2} text={language} />
+                            {action === 'true' ?
+                                (<Link
+                                    href={`/updateGist/${id}`}
+                                    className="bg-white/5 hover:bg-zinc-900 rounded-md transition-colors duration-300 border border-gray-800 text-[18px] px-5 py-1 shadow hidden md:block text-white">
+                                    Update
+                                </Link>)
+                                :
+                                (null)}
                         </div>
+                        <Link
+                            href={`/updateGist/${id}`}
+                            className="bg-white/5 hover:bg-zinc-900 rounded-md transition-colors duration-300 border border-gray-800 text-[18px] text-white shadow block md:hidden mt-5 px-5 py-1">
+                            Update
+                        </Link>
                     </div>
                     <div className="flex flex-col md:flex-row justify-between border-x border-gray-700 px-4 py-2 text-sm text-gray-400 space-y-3 md:space-y-0">
                         <InfoItem Icon={User2} text={username} />

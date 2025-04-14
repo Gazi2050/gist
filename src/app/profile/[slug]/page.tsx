@@ -18,7 +18,7 @@ const Page = () => {
     if (isError) return <ErrorComponent errorMessage={error?.message} />;
     if (!projects || Object.keys(projects).length === 0) return <NoGist />;
     return (
-        <GistDetails projects={projects} />
+        <GistDetails projects={projects} action='true' />
     );
 };
 

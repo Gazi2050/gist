@@ -14,7 +14,7 @@ const Page = () => {
     const [description, setDescription] = useState('');
     const [language, setLanguage] = useState('');
     const [code, setCode] = useState('');
-    const [loading, setLoading] = useState(false); // 👈 Loading state
+    const [loading, setLoading] = useState(false);
 
     const { username } = useAuthStore();
     const router = useRouter();

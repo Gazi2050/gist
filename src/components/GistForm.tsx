@@ -10,7 +10,6 @@ const GistForm: React.FC<GistFormProps> = ({ formState, action = 'post' }) => {
     const { title, setTitle, description, setDescription, language, setLanguage, code, setCode, handleSubmit, loading } = formState
     const isPost = action === 'post';
 
-
     return (
         <div className="flex flex-col items-center justify-center my-5 mx-2 md:my-10 font-mono relative">
             <h1 className="text-2xl md:text-3xl font-bold text-violet-400 mb-6 text-center">

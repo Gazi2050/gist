@@ -1,6 +1,7 @@
 // ─── Auth Types ─────────────────────────────────────────────
 
 import { ObjectId } from "mongodb";
+import { ParamValue } from "next/dist/server/request/params";
 
 export type AuthType = "signup" | "signin";
 
@@ -83,6 +84,15 @@ export type Project = {
     updatedAt?: string;
 };
 
+export type UpdateGistType = {
+    _id: ParamValue;
+    title?: string;
+    description?: string;
+    language?: string;
+    code?: string;
+    updatedAt: string;
+};
+
 export interface GistFormType extends Omit<Project, "username"> {
     username: string | null;
 }
@@ -103,6 +113,10 @@ export interface FormState {
 export interface GistFormProps {
     formState: FormState;
     action?: 'post' | 'update';
+}
+export interface UpdateGistProps {
+    projects: Project;
+    action?: 'true' | 'false';
 }
 
 export interface ProjectDB extends Omit<Project, "_id"> {
