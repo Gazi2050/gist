@@ -81,6 +81,24 @@ export interface GistFormType extends Omit<Project, "username"> {
     username: string | null;
 }
 
+export interface FormState {
+    title: string;
+    setTitle: (title: string) => void;
+    description: string;
+    setDescription: (description: string) => void;
+    language: string;
+    setLanguage: (language: string) => void;
+    code: string;
+    setCode: (code: string) => void;
+    handleSubmit: (event: React.FormEvent) => void;
+    loading: boolean;
+}
+
+export interface GistFormProps {
+    formState: FormState;
+    action?: 'post' | 'update';
+}
+
 export interface ProjectDB extends Omit<Project, "_id"> {
     _id: ObjectId;
 }

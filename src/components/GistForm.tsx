@@ -1,63 +1,19 @@
-'use client';
-
-import { useState } from 'react';
+import { GistFormProps } from '@/constants/type';
 import Editor from './Editor';
 import Input from './Input';
 import LanguageInput from './LanguageInput';
 import { languages } from '@/constants/data';
-import useAuthStore from '@/Hooks/useAuthStore';
-import { GistFormType } from '@/constants/type';
-import moment from 'moment';
-import { submitGist } from '@/utils/submitGist';
-import { toast } from 'sonner';
-import { useRouter } from 'next/navigation';
 import { LoaderCircle } from 'lucide-react';
 
-const GistForm = () => {
-    const [language, setLanguage] = useState('');
-    const [title, setTitle] = useState('');
-    const [description, setDescription] = useState('');
-    const [code, setCode] = useState('');
-    const [loading, setLoading] = useState(false); // 👈 Loading state
+const GistForm: React.FC<GistFormProps> = ({ formState, action = 'post' }) => {
+    const { title, setTitle, description, setDescription, language, setLanguage, code, setCode, handleSubmit, loading } = formState
+    const isPost = action === 'post';
 
-    const { username } = useAuthStore();
-    const router = useRouter();
-
-    const handleSubmit = (event: React.FormEvent) => {
-        event.preventDefault();
-        setLoading(true);
-
-        const projectData: GistFormType = {
-            title,
-            description,
-            username,
-            language,
-            code,
-            stars: [],
-            views: [],
-            createdAt: moment().toISOString(),
-        };
-
-        submitGist(projectData)
-            .then(() => {
-                toast.success('Your gist has been posted successfully!');
-                router.push('/feed');
-                setTitle('');
-                setDescription('');
-                setLanguage('');
-                setCode('');
-            })
-            .catch((error) => {
-                console.error('Error submitting gist:', error);
-                toast.error(error.message);
-            })
-            .finally(() => setLoading(false)); // 👈 Always stop loading
-    };
 
     return (
         <div className="flex flex-col items-center justify-center my-5 mx-2 md:my-10 font-mono relative">
             <h1 className="text-2xl md:text-3xl font-bold text-violet-400 mb-6 text-center">
-                Create a New Gist
+                {isPost ? 'Create New Gist' : 'Update Your Gist'}
             </h1>
 
             <form onSubmit={handleSubmit} className="w-full max-w-2xl space-y-6">
@@ -82,7 +38,9 @@ const GistForm = () => {
                             } text-white`}
                     >
                         {loading && <LoaderCircle className="animate-spin w-4 h-4" />}
-                        {loading ? 'Creating...' : 'Create Gist'}
+
+                        {isPost ? (loading ? 'Creating...' : 'Create Gist') : (loading ? 'Saving...' : 'Save Gist')}
+
                     </button>
                 </div>
             </form>
