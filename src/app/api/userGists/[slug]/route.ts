@@ -3,7 +3,8 @@ import { connectDB } from "@/libs/connectDB";
 import { ObjectId } from "mongodb";
 import { NextRequest, NextResponse } from "next/server";
 
-// GET /api/gists/:slug
+
+// GET /api/userGists/:id
 export const GET = async (_req: NextRequest, { params }: { params: { slug: string } }) => {
     try {
         const { slug } = await params;
@@ -21,8 +22,10 @@ export const GET = async (_req: NextRequest, { params }: { params: { slug: strin
         }
 
         return NextResponse.json(gist, { status: 200 });
+
     } catch (error) {
         console.error(`GET /gists/${params.slug} error:`, error);
         return NextResponse.json({ message: "Server error", error }, { status: 500 });
     }
 };
+
