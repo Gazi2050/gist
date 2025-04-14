@@ -1,31 +1,9 @@
-"use client"
-
 import PublicCard from "./PublicCard";
-import { useQuery } from "@tanstack/react-query";
-import { fetchGists } from "@/utils/fetchGists";
-import { Project } from "@/constants/type";
-import Loading from "./Loading";
-import NoGist from "./NoGist";
-import ErrorComponent from "./ErrorComponent";
+import { FeedProps, Project } from "@/constants/type";
 
-const Feed = () => {
-    const { data: Projects, isLoading, isError, error, } = useQuery(
-        {
-            queryKey: ["gists"],
-            queryFn: fetchGists,
-            refetchInterval: 1000,
-        });
 
-    if (isLoading) {
-        return <Loading />;
-    }
+const Feed: React.FC<FeedProps> = ({ Projects }) => {
 
-    if (isError) {
-        return <ErrorComponent errorMessage={error?.message} />;
-    }
-    if (!Projects || Projects.length === 0) {
-        return <NoGist />;
-    }
 
     return (
         <div>

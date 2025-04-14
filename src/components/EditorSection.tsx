@@ -9,7 +9,7 @@ const EditorSection = () => {
     const [code, setCode] = useState(initialCode);
 
     return (
-        <section id="editor" className="px-6 py-9 bg-gray-900">
+        <section id="editor" className="px-6 py-9 bg-zinc-950">
             <div className="max-w-4xl mx-auto">
                 <div className="container mx-auto px-4">
                     <div className="text-center mb-12">

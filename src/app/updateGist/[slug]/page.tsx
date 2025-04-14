@@ -7,8 +7,8 @@ import { fetchUserSingleGists } from '@/utils/fetchUserSingleGists';
 import { useQuery } from '@tanstack/react-query';
 import { useParams, useRouter } from 'next/navigation';
 import moment from 'moment';
-import { updateGist } from '@/utils/updateGist';
 import { toast } from 'sonner';
+import { updateGist } from '@/utils/updateGist';
 
 const Page = () => {
     const { slug: id } = useParams();

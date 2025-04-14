@@ -15,7 +15,7 @@ const Profile = ({ Projects }: { Projects: Project[] }) => {
 
     const handleLogout = () => {
         signout();
-        router.push("/signin");
+        router.replace("/signin");
     };
 
     return (

@@ -1,7 +1,9 @@
-// ─── Auth Types ─────────────────────────────────────────────
-
 import { ObjectId } from "mongodb";
 import { ParamValue } from "next/dist/server/request/params";
+
+// ───────────────────────────────────────────────────────────
+// ▶ Auth Types
+// ───────────────────────────────────────────────────────────
 
 export type AuthType = "signup" | "signin";
 
@@ -29,17 +31,9 @@ export interface AuthState {
     setAuthLoaded: () => void;
 }
 
-// ─── UI Component Types ─────────────────────────────────────
-
-export type LanguageExtensions = { [key: string]: string };
-
-export type UserType = {
-    username: string | null;
-}
-
-export type ErrorProps = {
-    errorMessage: string;
-};
+// ───────────────────────────────────────────────────────────
+// ▶ UI & Component Props
+// ───────────────────────────────────────────────────────────
 
 export interface NavLinkProps {
     label: string;
@@ -71,6 +65,45 @@ export interface FormatCodeParams {
     setCode: (code: string) => void;
 }
 
+export interface ErrorProps {
+    errorMessage: string;
+}
+
+export interface GistFormProps {
+    formState: FormState;
+    action?: 'post' | 'update';
+}
+
+export interface UpdateGistProps {
+    projects: Project;
+    action?: 'true' | 'false';
+}
+
+// ───────────────────────────────────────────────────────────
+// ▶ Form & State Types
+// ───────────────────────────────────────────────────────────
+
+export interface FormState {
+    title: string;
+    setTitle: (title: string) => void;
+    description: string;
+    setDescription: (description: string) => void;
+    language: string;
+    setLanguage: (language: string) => void;
+    code: string;
+    setCode: (code: string) => void;
+    handleSubmit: (event: React.FormEvent) => void;
+    loading: boolean;
+}
+
+export interface GistFormType extends Omit<Project, "username"> {
+    username: string | null;
+}
+
+// ───────────────────────────────────────────────────────────
+// ▶ Project & Gist Types
+// ───────────────────────────────────────────────────────────
+
 export type Project = {
     _id?: string;
     title: string;
@@ -93,38 +126,28 @@ export type UpdateGistType = {
     updatedAt: string;
 };
 
-export interface GistFormType extends Omit<Project, "username"> {
+export interface ProjectDB extends Omit<Project, "_id"> {
+    _id: ObjectId;
+}
+
+// ───────────────────────────────────────────────────────────
+// ▶ Utility & other Types
+// ───────────────────────────────────────────────────────────
+
+export type LanguageExtensions = {
+    [key: string]: string;
+};
+
+export type UserType = {
     username: string | null;
-}
+};
 
-export interface FormState {
-    title: string;
-    setTitle: (title: string) => void;
-    description: string;
-    setDescription: (description: string) => void;
-    language: string;
-    setLanguage: (language: string) => void;
-    code: string;
-    setCode: (code: string) => void;
-    handleSubmit: (event: React.FormEvent) => void;
-    loading: boolean;
-}
-
-export interface GistFormProps {
-    formState: FormState;
-    action?: 'post' | 'update';
-}
-export interface UpdateGistProps {
-    projects: Project;
-    action?: 'true' | 'false';
-}
+export type FeedProps = {
+    Projects: Project[];
+};
 
 export type ActionParams = {
     id: string | undefined;
     username: string;
     action: "view" | "vote";
 };
-
-export interface ProjectDB extends Omit<Project, "_id"> {
-    _id: ObjectId;
-}
