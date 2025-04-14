@@ -3,9 +3,8 @@ import { connectDB } from "@/libs/connectDB";
 import { ObjectId } from "mongodb";
 import { NextRequest, NextResponse } from "next/server";
 
-
-// GET /api/userGists/:id
-export const GET = async (_req: NextRequest, { params }: { params: { slug: string } }) => {
+// GET /api/userGists/:slug
+export const GET = async (_req: NextRequest, { params }: { params: Promise<{ slug: string }> }) => {
     try {
         const { slug } = await params;
 
@@ -24,13 +23,12 @@ export const GET = async (_req: NextRequest, { params }: { params: { slug: strin
         return NextResponse.json(gist, { status: 200 });
 
     } catch (error) {
-        console.error(`GET /gists/${params.slug} error:`, error);
         return NextResponse.json({ message: "Server error", error }, { status: 500 });
     }
 };
 
-// PUT /api/userGists/:id
-export const PUT = async (_req: NextRequest, { params }: { params: { slug: string } }) => {
+// PUT /api/userGists/:slug
+export const PUT = async (_req: NextRequest, { params }: { params: Promise<{ slug: string }> }) => {
     try {
         const { slug } = await params;
 
@@ -63,7 +61,6 @@ export const PUT = async (_req: NextRequest, { params }: { params: { slug: strin
             return NextResponse.json({ message: "Missing required field: updatedAt" }, { status: 400 });
         }
 
-
         const updateResult = await gistCollection.updateOne(
             { _id: new ObjectId(slug) },
             {
@@ -85,8 +82,6 @@ export const PUT = async (_req: NextRequest, { params }: { params: { slug: strin
         return NextResponse.json(updatedGist, { status: 200 });
 
     } catch (error) {
-        console.error(`PUT /gists/${params.slug} error:`, error);
         return NextResponse.json({ message: "Server error", error }, { status: 500 });
     }
 };
-
