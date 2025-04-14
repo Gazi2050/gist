@@ -50,7 +50,7 @@ export const PATCH = async (req: NextRequest, { params }: { params: { slug: stri
 
         const result = await gistCollection.updateOne(
             { _id: new ObjectId(slug) },
-            { $addToSet: { [updateField]: username } } // prevent duplicates
+            { $addToSet: { [updateField]: username } }
         );
 
         if (result.matchedCount === 0) {

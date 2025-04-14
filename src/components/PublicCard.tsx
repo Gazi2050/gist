@@ -5,23 +5,26 @@ import Link from 'next/link';
 import moment from 'moment';
 import { truncateString } from '@/utils/truncateString';
 import { submitAction } from '@/utils/submitAction';
+import useAuthStore from '@/Hooks/useAuthStore';
 
 const PublicCard = ({ project }: { project: Project }) => {
     const {
         _id: id,
         title,
-        username,
         language,
         description,
         stars,
         views,
         createdAt,
     } = project;
+    const { username } = useAuthStore()
+    if (!username) return null;
     const shortenedTitle = truncateString(title, 20);
     const shortenedDescription = truncateString(description, 30);
     const time = createdAt ? moment(createdAt).fromNow() : 'Unknown Date';
     const isViewed = views.includes(username);
     const isStarred = stars.includes(username);
+
     return (
         <div className="bg-white/5 rounded-xl overflow-hidden border border-gray-800 hover:border-white/20 transition-colors">
             <div className="p-6">

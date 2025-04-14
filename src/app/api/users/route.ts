@@ -14,9 +14,10 @@ export const POST = async (req: NextRequest) => {
         const db = await connectDB();
         const userCollection = db.collection<User>("users");
 
-        const existingUser = await userCollection.findOne({ email: user.email });
+        const existingEmail = await userCollection.findOne({ email: user.email });
+        const existingUser = await userCollection.findOne({ username: user.username });
 
-        if (existingUser) {
+        if (existingEmail || existingUser) {
             if (process.env.NODE_ENV === "development") console.log(existingUser, "User already exists");
             return NextResponse.json(
                 { message: "User already exists", user: existingUser },

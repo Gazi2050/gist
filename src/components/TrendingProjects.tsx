@@ -1,4 +1,3 @@
-import { Projects } from '@/constants/data';
 import PublicCard from './PublicCard';
 import { Project } from '@/constants/type';
 
@@ -15,9 +14,9 @@ const TrendingProjects = () => {
                 </div>
 
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-                    {Projects?.map((project: Project) => (
+                    {/* {Projects?.map((project: Project) => (
                         <PublicCard key={project._id} project={project} />
-                    ))}
+                    ))} */}
                 </div>
             </div>
         </section>
