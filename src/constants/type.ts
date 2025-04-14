@@ -119,6 +119,12 @@ export interface UpdateGistProps {
     action?: 'true' | 'false';
 }
 
+export type ActionParams = {
+    id: string | undefined;
+    username: string;
+    action: "view" | "vote";
+};
+
 export interface ProjectDB extends Omit<Project, "_id"> {
     _id: ObjectId;
 }

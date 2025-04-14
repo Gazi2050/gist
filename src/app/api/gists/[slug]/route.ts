@@ -26,3 +26,40 @@ export const GET = async (_req: NextRequest, { params }: { params: { slug: strin
         return NextResponse.json({ message: "Server error", error }, { status: 500 });
     }
 };
+
+// PATCH /api/gists/:slug
+export const PATCH = async (req: NextRequest, { params }: { params: { slug: string } }) => {
+    try {
+        const { slug } = params;
+
+        if (!ObjectId.isValid(slug)) {
+            return NextResponse.json({ message: "Invalid ID format" }, { status: 400 });
+        }
+
+        const body = await req.json();
+        const { username, action } = body;
+
+        if (!username || !["view", "vote"].includes(action)) {
+            return NextResponse.json({ message: "Missing or invalid parameters" }, { status: 400 });
+        }
+
+        const db = await connectDB();
+        const gistCollection = db.collection<ProjectDB>("gists");
+
+        const updateField = action === "view" ? "views" : "stars";
+
+        const result = await gistCollection.updateOne(
+            { _id: new ObjectId(slug) },
+            { $addToSet: { [updateField]: username } } // prevent duplicates
+        );
+
+        if (result.matchedCount === 0) {
+            return NextResponse.json({ message: "Gist not found" }, { status: 404 });
+        }
+
+        return NextResponse.json({ message: `${action} updated` }, { status: 200 });
+    } catch (error) {
+        console.error(`PATCH /gists/${params.slug} error:`, error);
+        return NextResponse.json({ message: "Server error", error }, { status: 500 });
+    }
+};

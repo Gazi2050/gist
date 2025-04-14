@@ -9,7 +9,12 @@ import NoGist from "./NoGist";
 import ErrorComponent from "./ErrorComponent";
 
 const Feed = () => {
-    const { data: Projects, isLoading, isError, error } = useQuery({ queryKey: ["gists"], queryFn: fetchGists });
+    const { data: Projects, isLoading, isError, error, } = useQuery(
+        {
+            queryKey: ["gists"],
+            queryFn: fetchGists,
+            refetchInterval: 1000,
+        });
 
     if (isLoading) {
         return <Loading />;

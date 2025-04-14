@@ -4,11 +4,13 @@ import { Project } from '@/constants/type';
 import Link from 'next/link';
 import moment from 'moment';
 import { truncateString } from '@/utils/truncateString';
+import { submitAction } from '@/utils/submitAction';
 
 const PublicCard = ({ project }: { project: Project }) => {
     const {
         _id: id,
         title,
+        username,
         language,
         description,
         stars,
@@ -18,18 +20,25 @@ const PublicCard = ({ project }: { project: Project }) => {
     const shortenedTitle = truncateString(title, 20);
     const shortenedDescription = truncateString(description, 30);
     const time = createdAt ? moment(createdAt).fromNow() : 'Unknown Date';
-
+    const isViewed = views.includes(username);
+    const isStarred = stars.includes(username);
     return (
         <div className="bg-white/5 rounded-xl overflow-hidden border border-gray-800 hover:border-white/20 transition-colors">
             <div className="p-6">
                 <div className="flex justify-between items-start mb-2">
                     <div className="flex flex-col">
-                        <Link
-                            href={`/feed/${id}`}
-                            className="font-medium text-blue-400 hover:underline underline-offset-4 cursor-pointer text-xl"
-                        >
-                            {shortenedTitle}
-                        </Link>
+                        {/* here add for view */}
+                        <div onClick={(e) => {
+                            e.stopPropagation();
+                            submitAction({ id, username, action: "view" });
+                        }}>
+                            <Link
+                                href={`/feed/${id}`}
+                                className="font-medium text-blue-400 hover:underline underline-offset-4 cursor-pointer text-xl"
+                            >
+                                {shortenedTitle}
+                            </Link>
+                        </div>
                         <p className="text-sm text-zinc-600 font-medium mt-1">
                             Created {time}
                         </p>
@@ -40,12 +49,17 @@ const PublicCard = ({ project }: { project: Project }) => {
                 </div>
                 <p className="text-gray-400 mb-4">{shortenedDescription}</p>
                 <div className="flex justify-between text-sm text-gray-400 pt-4 border-t border-gray-700">
-                    <div className="flex justify-center items-center text-base">
-                        <Star className="h-5 w-5 mr-1 text-yellow-400" />
+                    {/* here add for vote */}
+                    <div onClick={(e) => {
+                        e.stopPropagation();
+                        submitAction({ id, username, action: "vote" });
+                    }} className="flex justify-center items-center text-base cursor-pointer">
+                        <Star className={`h-5 w-5 mr-1 ${isStarred ? 'fill-yellow-600' : 'text-yellow-600'}`}
+                        />
                         <span>{stars?.length ?? 0}</span>
                     </div>
                     <div className="flex items-center text-base">
-                        <Eye className="h-5 w-5 mr-1 text-violet-500" />
+                        <Eye className={`h-5 w-5 mr-1 ${isViewed ? 'text-violet-600' : 'text-zinc-600'}`} />
                         <span>{views?.length ?? 0}</span>
                     </div>
                 </div>
