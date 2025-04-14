@@ -4,6 +4,7 @@ import Input from './Input';
 import LanguageInput from './LanguageInput';
 import { languages } from '@/constants/data';
 import { LoaderCircle } from 'lucide-react';
+import ProTip from './ProTip';
 
 const GistForm: React.FC<GistFormProps> = ({ formState, action = 'post' }) => {
     const { title, setTitle, description, setDescription, language, setLanguage, code, setCode, handleSubmit, loading } = formState
@@ -30,7 +31,10 @@ const GistForm: React.FC<GistFormProps> = ({ formState, action = 'post' }) => {
                 />
                 <Editor language={language} code={code} setCode={setCode} />
 
-                <div className="flex justify-end mt-6">
+                <div className="flex justify-center md:justify-between ">
+                    <div className='hidden md:block'>
+                        <ProTip />
+                    </div>
                     <button
                         type="submit"
                         disabled={loading}
@@ -42,6 +46,10 @@ const GistForm: React.FC<GistFormProps> = ({ formState, action = 'post' }) => {
                         {isPost ? (loading ? 'Creating...' : 'Create Gist') : (loading ? 'Saving...' : 'Save Gist')}
 
                     </button>
+
+                </div>
+                <div className='block md:hidden'>
+                    <ProTip />
                 </div>
             </form>
         </div>
