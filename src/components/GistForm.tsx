@@ -37,7 +37,7 @@ const GistForm: React.FC<GistFormProps> = ({ formState, action = 'post' }) => {
                     <button
                         type="submit"
                         disabled={loading}
-                        className={`px-4 py-2 rounded-md transition-colors duration-300 border border-gray-800 flex items-center gap-2 ${loading ? 'bg-zinc-700 cursor-not-allowed' : 'bg-white/5 hover:bg-zinc-900'
+                        className={`cursor-pointer px-4 py-2 rounded-md transition-colors duration-300 border border-gray-800 flex items-center gap-2 ${loading ? 'bg-zinc-700 cursor-not-allowed' : 'bg-white/5 hover:bg-zinc-900'
                             } text-white`}
                     >
                         {loading && <LoaderCircle className="animate-spin w-4 h-4" />}

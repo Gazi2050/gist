@@ -17,6 +17,7 @@ import Link from 'next/link';
 const GistDetails: React.FC<UpdateGistProps> = ({ projects, action = "false" }) => {
     const { _id: id, title = 'Untitled', description = '', username = 'Unknown', language = 'Unknown', code = '// No code available', createdAt, updatedAt, stars = [], views = [] } = projects;
 
+    const formattedTitle = title.replace(/ /g, '_');
     const createdAtFormatted = createdAt ? moment(createdAt).fromNow() : 'Unknown date';
     const updatedAtFormatted = updatedAt ? moment(updatedAt).fromNow() : null;
 
@@ -29,7 +30,7 @@ const GistDetails: React.FC<UpdateGistProps> = ({ projects, action = "false" }) 
                         <div className="flex items-center gap-2">
                             <FileCode2 className="w-5 h-5 text-gray-400" />
                             <h1 className="text-lg font-semibold text-white">
-                                {title}.{getFileExtension(language)}
+                                {formattedTitle}.{getFileExtension(language)}
                             </h1>
                         </div>
                         <div className="flex gap-4 mt-3 sm:mt-0 text-sm text-gray-300">
