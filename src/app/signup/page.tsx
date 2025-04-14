@@ -30,6 +30,8 @@ const Page = () => {
             })
             .catch((error) => {
                 console.error("Error during signup:", error);
+                const errorMessage = error?.message || "An unexpected error occurred. Please try again.";
+                toast.error(errorMessage);
             })
             .finally(() => {
                 setLoading(false);

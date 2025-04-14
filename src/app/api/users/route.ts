@@ -17,12 +17,12 @@ export const POST = async (req: NextRequest) => {
         const existingEmail = await userCollection.findOne({ email: user.email });
         const existingUser = await userCollection.findOne({ username: user.username });
 
-        if (existingEmail || existingUser) {
-            if (process.env.NODE_ENV === "development") console.log(existingUser, "User already exists");
-            return NextResponse.json(
-                { message: "User already exists", user: existingUser },
-                { status: 409 }
-            );
+        if (existingEmail) {
+            return NextResponse.json({ message: "Email is already registered." }, { status: 409 });
+        }
+
+        if (existingUser) {
+            return NextResponse.json({ message: "Username is already taken." }, { status: 409 });
         }
 
         const result = await userCollection.insertOne(user);
