@@ -53,7 +53,7 @@ const GistDetails = ({ projects }: { projects: Project }) => {
                         </div>
                     </div>
                     {description && (
-                        <div className="border rounded-b-lg border-t border-gray-700  px-4 py-2 text-sm text-gray-300 italic">
+                        <div className="border rounded-b-lg border-t border-gray-700  px-4 py-2 text-sm text-gray-300 italic wrap-break-word">
                             {description}
                         </div>
                     )}

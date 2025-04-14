@@ -3,6 +3,7 @@ import { Star, Eye } from 'lucide-react';
 import { Project } from '@/constants/type';
 import Link from 'next/link';
 import moment from 'moment';
+import { truncateString } from '@/utils/truncateString';
 
 const PublicCard = ({ project }: { project: Project }) => {
     const {
@@ -14,7 +15,8 @@ const PublicCard = ({ project }: { project: Project }) => {
         views,
         createdAt,
     } = project;
-
+    const shortenedTitle = truncateString(title, 20);
+    const shortenedDescription = truncateString(description, 30);
     const time = createdAt ? moment(createdAt).fromNow() : 'Unknown Date';
 
     return (
@@ -26,7 +28,7 @@ const PublicCard = ({ project }: { project: Project }) => {
                             href={`/feed/${id}`}
                             className="font-medium text-blue-400 hover:underline underline-offset-4 cursor-pointer text-xl"
                         >
-                            {title}
+                            {shortenedTitle}
                         </Link>
                         <p className="text-sm text-zinc-600 font-medium mt-1">
                             Created {time}
@@ -36,7 +38,7 @@ const PublicCard = ({ project }: { project: Project }) => {
                         {language}
                     </span>
                 </div>
-                <p className="text-gray-400 mb-4">{description}</p>
+                <p className="text-gray-400 mb-4">{shortenedDescription}</p>
                 <div className="flex justify-between text-sm text-gray-400 pt-4 border-t border-gray-700">
                     <div className="flex justify-center items-center text-base">
                         <Star className="h-5 w-5 mr-1 text-yellow-400" />

@@ -30,6 +30,12 @@ export interface AuthState {
 
 // ─── UI Component Types ─────────────────────────────────────
 
+export type LanguageExtensions = { [key: string]: string };
+
+export type UserType = {
+    username: string | null;
+}
+
 export type ErrorProps = {
     errorMessage: string;
 };

@@ -5,10 +5,10 @@ import useAuthStore from '@/Hooks/useAuthStore';
 import Avatar from 'boring-avatars';
 import { useRouter } from 'next/navigation';
 import PrivateCard from './PrivateCard';
-import { Projects } from '@/constants/data';
 import { Project } from '@/constants/type';
+import NoGist from './NoGist';
 
-const Profile = () => {
+const Profile = ({ Projects }: { Projects: Project[] }) => {
     const { username, signout } = useAuthStore();
     const name = username?.replace('@', '') || '';
     const router = useRouter();
@@ -66,11 +66,15 @@ const Profile = () => {
                         {Projects.length}
                     </span>
                 </h2>
-                <div className="grid gap-4 sm:grid-cols-2">
-                    {Projects.map((project: Project) => (
-                        <PrivateCard key={project._id} project={project} />
-                    ))}
-                </div>
+                {(!Projects || Projects.length === 0) ? (
+                    <NoGist />
+                ) : (
+                    <div className="grid gap-4 md:grid-cols-2">
+                        {Projects.map((project: Project) => (
+                            <PrivateCard key={project._id} project={project} />
+                        ))}
+                    </div>
+                )}
             </div>
         </div>
     );

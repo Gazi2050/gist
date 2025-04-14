@@ -1,7 +1,7 @@
 import { InputProps } from "@/constants/type";
 
 const Input: React.FC<InputProps> = ({ title, setTitle, description, setDescription }) => {
-    const TITLE_LIMIT = 80;
+    const TITLE_LIMIT = 30;
     const DESCRIPTION_LIMIT = 200;
 
     return (
