@@ -46,11 +46,14 @@ const GistDetails: React.FC<UpdateGistProps> = ({ projects, action = "false" }) 
                                 :
                                 (null)}
                         </div>
-                        <Link
-                            href={`/updateGist/${id}`}
-                            className="bg-white/5 hover:bg-zinc-900 rounded-md transition-colors duration-300 border border-gray-800 text-[18px] text-white shadow block md:hidden mt-5 px-5 py-1">
-                            Update
-                        </Link>
+                        {action === 'true' ?
+                            (<Link
+                                href={`/updateGist/${id}`}
+                                className="bg-white/5 hover:bg-zinc-900 rounded-md transition-colors duration-300 border border-gray-800 text-[18px] text-white shadow block md:hidden mt-5 px-5 py-1">
+                                Update
+                            </Link>)
+                            :
+                            (null)}
                     </div>
                     <div className="flex flex-col md:flex-row justify-between border-x border-gray-700 px-4 py-2 text-sm text-gray-400 space-y-3 md:space-y-0">
                         <InfoItem Icon={User2} text={username} />

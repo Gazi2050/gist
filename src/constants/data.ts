@@ -57,9 +57,9 @@ export const faqs = [
             "Yes, you can update your gist at any time. Just open it, make your changes, and click 'Save.' The shared link will remain unchanged.",
     },
     {
-        question: "Do I need an account to create or view gists?",
+        question: "Do I need an account to use gists?",
         answer:
-            "You can view gists without an account, but to create, edit, or manage your own gists, you'll need to sign in.",
+            "You can view gists without signing in, but to see full details like the code, view count, or stars, you'll need to sign in.",
     },
     {
         question: "Can others interact with my gists?",
