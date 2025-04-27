@@ -1,10 +1,11 @@
 import { Code, Eye, Share2, Sliders, Star, Users } from "lucide-react";
+import Footer from "./Footer";
 
 const AboutUs = () => {
     return (
         <div className="text-white">
             {/* Header Section */}
-            <header className="py-24 px-6 text-center">
+            <header className="pt-10 pb-0 px-6 text-center">
                 <h1 className="text-5xl md:text-6xl font-extrabold text-violet-500">About Us</h1>
                 <p className="mt-6 text-lg md:text-xl max-w-2xl mx-auto text-zinc-300">
                     Welcome to Gist — the place where developers share and collaborate on code snippets.
@@ -48,20 +49,8 @@ const AboutUs = () => {
                 </div>
             </section>
 
-            {/* Additional Section: Code Sharing */}
-            <section className="py-20 px-6 bg-zinc-800">
-                <div className="max-w-7xl mx-auto text-center">
-                    <h2 className="text-3xl md:text-4xl font-semibold text-violet-400">Why Gist?</h2>
-                    <p className="mt-6 text-lg md:text-xl text-zinc-300 max-w-3xl mx-auto">
-                        Gist provides a convenient and streamlined way for developers to share, store, and discover code snippets. Whether it&apos;s a
-                        small utility, a helper function, or a full project, Gist gives you a platform to instantly share your work, receive
-                        feedback, and collaborate with others.
-                    </p>
-                </div>
-            </section>
-
             {/* Editor Features Section */}
-            <section className="py-20 px-6">
+            <section className="py-20 px-6 bg-gray-900">
                 <div className="max-w-7xl mx-auto text-center">
                     <h2 className="text-3xl md:text-4xl font-semibold text-violet-400">Editor Features</h2>
                     <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
@@ -91,9 +80,7 @@ const AboutUs = () => {
             </section>
 
             {/* Footer */}
-            <footer className="bg-zinc-900 text-center py-8">
-                <p className="text-zinc-500">&copy; {new Date().getFullYear()} Gist. All rights reserved.</p>
-            </footer>
+            <Footer />
         </div>
     );
 };
