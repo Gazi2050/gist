@@ -49,7 +49,7 @@ const GistDetails: React.FC<UpdateGistProps> = ({ projects, action = "false" }) 
                         {action === 'true' ?
                             (<Link
                                 href={`/updateGist/${id}`}
-                                className="bg-white/5 hover:bg-zinc-900 rounded-md transition-colors duration-300 border border-gray-800 text-[18px] text-white shadow block md:hidden mt-5 px-5 py-1">
+                                className="bg-white/5 hover:bg-zinc-900 rounded-md transition-colors duration-300 border border-gray-800 text-[18px] text-white shadow block md:hidden mt-5 px-5 py-1 text-center">
                                 Update
                             </Link>)
                             :

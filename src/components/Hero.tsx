@@ -16,7 +16,7 @@ const Hero = () => {
                             <Link href='/createGist' className="rounded-md bg-violet-600 px-6 py-3 text-white font-medium hover:bg-violet-500 transition duration-300">
                                 Create a Gist
                             </Link>
-                            <Link href='/treading' className="rounded-md border border-violet-700 px-6 py-3 hover:bg-violet-900/30 transition duration-300">
+                            <Link href='/trending' className="rounded-md border border-violet-700 px-6 py-3 hover:bg-violet-900/30 transition duration-300">
                                 Explore Gists
                             </Link>
                         </div>
